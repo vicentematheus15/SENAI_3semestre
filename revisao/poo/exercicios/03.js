@@ -1,1 +1,21 @@
 // Crie uma classe CarrinhoDeCompras que possa armazenar objetos da classe Produto. Implemente métodos para adicionar produtos ao carrinho e um método para calcular o valor total da compra somando os preços dos produtos contidos.
+
+class CarrinhoDeCompras{
+    constructor(){
+
+    }
+
+    calcularTotal(){
+
+    }
+}
+
+class Produto{
+    constructor(){
+
+    }
+
+    adicionarCarrinho(){
+        
+    }
+}
