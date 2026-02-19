@@ -9,7 +9,6 @@ const fila = ["Ana", "Carlos", "João"]
 
 fila.push("Maria")
 
-const clienteAtendido = fila.shift()
-console.log(clienteAtendido);
+console.log(fila.shift());
 
 console.log(fila);
