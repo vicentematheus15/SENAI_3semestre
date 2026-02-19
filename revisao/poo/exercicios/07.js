@@ -35,7 +35,7 @@ class Aviao extends Veiculo {
   }
 }
 
-// Teste
+// teste
 const carro = new Carro("Fusca", 2);
 const aviao = new Aviao("Boeing", 12000);
 

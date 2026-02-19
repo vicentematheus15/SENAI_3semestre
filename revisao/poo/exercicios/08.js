@@ -28,6 +28,6 @@ class Gerente extends Funcionario {
   }
 }
 
-// Teste
+// teste
 const gerente = new Gerente("Carlos", 8000, "TI");
 gerente.exibirDados();
