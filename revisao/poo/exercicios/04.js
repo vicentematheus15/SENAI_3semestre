@@ -39,16 +39,6 @@ class Cofre {
       console.log("Senha incorreta. Acesso negado.");
     }
   }
-
-  // Método opcional para listar itens (também protegido por senha)
-  listarItens(senhaInformada) {
-    if (this.#validarSenha(senhaInformada)) {
-      return [...this.#conteudo]; // retorna uma cópia, não o array original
-    } else {
-      console.log("Senha incorreta. Acesso negado.");
-      return null;
-    }
-  }
 }
 
 //teste que consegue acessar
