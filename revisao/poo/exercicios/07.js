@@ -39,6 +39,7 @@ class Aviao extends Veiculo {
 const carro = new Carro("Fusca", 2);
 const aviao = new Aviao("Boeing", 12000);
 
+//em cada método o veiculo vai se mover de um jeito
 carro.mover(); // pela estrada
 aviao.mover(); // pelo ar
 
