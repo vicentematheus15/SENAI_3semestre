@@ -21,7 +21,7 @@ class Gerente extends Funcionario {
     this.departamento = departamento;
   }
 
-  // Sobrescrevendo o método
+  // Sobrescrevendo o método, que agora vai mostrar também o departamento
   exibirDados() {
     super.exibirDados(); // chama o método da classe base
     console.log("Departamento:", this.departamento);

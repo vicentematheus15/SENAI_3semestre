@@ -21,4 +21,4 @@ lista.push(2);
 lista.push(8);
 lista.push(1);
 
-console.log(lista); // [1, 2, 5, 8]
+console.log(lista); // [1, 2, 5, 8] já vai executar todos os metodos(push, sort e retornar o lenght)

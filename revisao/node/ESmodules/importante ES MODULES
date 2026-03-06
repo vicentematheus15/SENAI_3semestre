@@ -1,0 +1,7 @@
+SEMPRE QUE CRIAR O PACKAGE.JSON, deve definir o tipo de importação e exportação:
+"type": "module"
+
+SEMPRE USAR SOMENTE UM TIPO EM TODO O PROJETO
+
+Não usar mais a importação e exportação com CommonJS (usando require)
+Usar a importação e exportação com ES Modules, usando import e export.
