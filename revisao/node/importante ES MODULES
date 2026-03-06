@@ -1,5 +1,0 @@
-Não usar mais a importação e exportação com CommonJS (usando require)
-
-Usar a importação e exportação com ES Modules, usando import e export.
-
-SEMPRE USAR SOMENTE UM TIPO EM TODO O PROJETO
