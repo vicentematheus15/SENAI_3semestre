@@ -5,8 +5,27 @@ import {readdir, rename} from 'fs/promises';
 
 async function olharPasta(){
     const listaArquivos = await readdir('./ex03')
-    console.log(listaArquivos);
+    return listaArquivos
+}
+
+
+async function moverArquivos(listaArquivos) {
+    try{
+       for(const arquivo of listaArquivos){
+        if(arquivo.endsWith('.txt')){
+            await rename(`./ex03/${arquivo}`, `./ex03/textos/${arquivo}`)
+        }
+       }
+    }catch(err){
+        return `Deu erro: ${err}`
+    }
+}
+
+async function main() {
+    const arquivosParaMover = await olharPasta();
+
+    await moverArquivos(arquivosParaMover);
     
 }
 
-olharPasta();
+main();
