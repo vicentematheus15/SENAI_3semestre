@@ -6,10 +6,13 @@ import path from 'path'
 
 async function criarPastas() {
     const nomePastas = ['src/Controllers', 'src/Services', 'src/Routes'];
-    nomePastas.forEach(async pasta => {
-        const caminho = path.join('Desenvolvimento Backend', 'node', 'exercicios', 'ex05')
-        const criacao = await mkdir(`${caminho}/${pasta}`, {recursive: true})
-    });
+
+    for(const pasta of nomePastas){
+        const caminho = path.join(pasta)
+        await mkdir(`${caminho}`, {recursive: true})
+        console.log(`Pasta criada: ${pasta}`);
+        
+    }
     
 }
 criarPastas()
