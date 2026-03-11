@@ -9,10 +9,10 @@ function gerarRelatorioSistema(){
     const nucleos = processador.length
     const memoriaTotal = (os.totalmem() / 1024 / 1024 / 1024).toFixed(2);
     const memoriaDisponivel = (os.freemem() / 1024 / 1024 / 1024).toFixed(2);
-    const porcentMemoriaUso = (1 - (os.freemem() / os.totalmem()) * 100).toFixed(2);
+    const porcentMemoriaUso = ( (os.freemem() / os.totalmem()) * 100).toFixed(2);
 
     console.log("====== RELATÓRIO DO SISTEMA =======");
-    console.log(`Plataforma: ${plataforma} \nArquitetura: ${arquitetura}\n  `)
+    console.log(`Plataforma: ${plataforma} \nArquitetura: ${arquitetura}\nModelo processador: ${processador}\nQuantidade de núcleos: ${nucleos}\nMemoria total: ${memoriaTotal}GB \nMemória livre: ${memoriaDisponivel}GB \nPercentual de memória em uso: ${porcentMemoriaUso}`)
 
 }
 
