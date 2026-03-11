@@ -3,10 +3,14 @@
 import {readFile} from 'fs/promises';
 
 async function lerArquivo(){
-    const conteudo = await readFile('./texto.txt', 'utf-8')
-    const qtdLinhas = conteudo.trim().split('\n')
-    const qtdPalavras = conteudo.split(/\s+/)
-    console.log(`Número de linhas: ${qtdLinhas.length} \nNúmero de palavras: ${qtdPalavras.length} \nNúmero de caracteres: ${conteudo.length}`);
+    try{
+        const conteudo = await readFile('./texto.txt', 'utf-8')
+        const qtdLinhas = conteudo.trim().split('\n')
+        const qtdPalavras = conteudo.split(/\s+/)
+        console.log(`Número de linhas: ${qtdLinhas.length} \nNúmero de palavras: ${qtdPalavras.length} \nNúmero de caracteres: ${conteudo.length}`);
+    }catch(error){
+        console.error("Ocorreu um erro: ", error)
+    }
 }
 
 const dados = await lerArquivo()
