@@ -3,17 +3,43 @@
 import {readFile, writeFile} from 'fs/promises'
 
 async function lerDados(){
-    const dadosBrutos = await readFile('dados.json', 'utf-8');
-    return dadosBrutos
+    return readFile('dados.json', 'utf-8');
 }
 
-async function formataDados(dadosBrutos){
-    const objetoDados = JSON.parse(dadosBrutos)
-    return objetoDados 
+function formataDados(dadosBrutos){
+    return JSON.parse(dadosBrutos)
 }
 
 async function geraRelatorio(objetoDados){
-    const data = 
-    const cabecalho = `Relatório de estoque - Gerado em: ${data}\n`
+    const data = new Date();
+    const dataFormatada = data.toLocaleString('pt-BR')
+    const cabecalhoRelatorio = `Relatório de estoque - Gerado em: ${dataFormatada}\n`
+    let corpo = "";
+    let totalGeral = 0;
+    
+   for (const produto of objetoDados) {
+        const totalProduto = produto.preco * produto.quantidade;
+        totalGeral += totalProduto;
+        corpo += `Produto: ${produto.nome} | Total: R$ ${totalProduto.toFixed(2)}\n`;
+    }
+        const rodape = `\nValor Total Geral: R$${totalGeral.toFixed(2)}`
+        const relatorio = cabecalhoRelatorio + corpo + rodape
+        await writeFile('./relatorio.txt', relatorio )
 }
 
+async function main(){
+    try{
+        const dadosLidos = await lerDados();
+        const dadosFormatados = await formataDados(dadosLidos);
+        await geraRelatorio(dadosFormatados);  
+
+    }catch(err){
+        if(err.code === 'ENOENT'){
+            console.error("O arquivo 'dados.json' não foi encontrado.")
+        }else{
+            console.error("Ocorreu um erro inesperado: ",err.message)
+        }
+    }
+}
+
+main();

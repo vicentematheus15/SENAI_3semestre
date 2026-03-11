@@ -1,0 +1,5 @@
+Relatório de estoque - Gerado em: 11/03/2026, 12:16:56
+Produto: Teclado | Total: R$ 3750.00
+Produto: Mouse | Total: R$ 3596.00
+
+Valor Total Geral: R$7346.00
