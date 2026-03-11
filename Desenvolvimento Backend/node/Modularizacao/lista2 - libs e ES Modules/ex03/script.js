@@ -3,7 +3,7 @@
 import {readdir, mkdir, rename} from 'fs/promises';
 
 async function lerArquivos(){   
-    const listaArquivos = await readdir('./ex03/testes')
+    const listaArquivos = await readdir('./testes')
     return listaArquivos        
 }
 
@@ -32,14 +32,15 @@ async function moverArquivos(listaArquivos){
             continue;
         }
 
-        await mkdir(`./ex03/${pastaDestino}`, {recursive: true})
-        await rename(`./ex03/testes/${arquivo}`, `./ex03/${pastaDestino}/${arquivo}`)
+        await mkdir(`./${pastaDestino}`, {recursive: true})
+        await rename(`./testes/${arquivo}`, `./${pastaDestino}/${arquivo}`)
     }        
     console.table(contador);
 }
 
 
 async function main(){
+    console.log("O Node está procurando arquivos em: ", process.cwd());
     try{
         const arquivosLidos = await lerArquivos();
         await moverArquivos(arquivosLidos);
