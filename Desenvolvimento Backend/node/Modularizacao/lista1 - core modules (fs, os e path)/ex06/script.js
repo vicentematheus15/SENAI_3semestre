@@ -5,11 +5,16 @@ import { mkdir } from 'fs/promises'
 import path from 'path'
 
 async function criarPastas() {
-    const nomePastas = ['src/Controllers', 'src/Services', 'src/Routes'];
+    const caminho = path.join(process.cwd(), 'src')
+    const nomePastas = [
+        caminho, 
+        path.join(caminho, 'controllers'), 
+        path.join(caminho, 'services'), 
+        path.join(caminho, 'routes'), 
+    ];
 
     for(const pasta of nomePastas){
-        const caminho = path.join(pasta)
-        await mkdir(`${caminho}`, {recursive: true})
+        await mkdir(pasta, {recursive: true})
         console.log(`Pasta criada: ${pasta}`);
         
     }
