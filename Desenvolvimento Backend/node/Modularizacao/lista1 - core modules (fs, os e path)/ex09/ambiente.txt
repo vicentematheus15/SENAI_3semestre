@@ -1,0 +1,4 @@
+----- Informações de ambiente -----
+Diretório: C:\Users\matheus_silva176 
+Tempo de atividade do sistema: 2 horas e 20 minutos 
+Hostname: SN-392502 
