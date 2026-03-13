@@ -12,11 +12,13 @@ async function criarPastas() {
         path.join(caminho, 'services'), 
         path.join(caminho, 'routes'), 
     ];
-
-    for(const pasta of nomePastas){
-        await mkdir(pasta, {recursive: true})
-        console.log(`Pasta criada: ${pasta}`);
-        
+    try{
+        for(const pasta of nomePastas){
+            await mkdir(pasta, {recursive: true})
+            console.log(`Pasta criada: ${pasta}`);                      
+        }
+    }catch(err){
+        console.log("Ocorreu um erro:", err);
     }
     
 }
