@@ -17,8 +17,12 @@ app.get('/usuarios', (req, res) =>{
     res.json(usuarios);
 });
 
-app.get('/usuarios:id', (req, res) =>{
+app.get('/usuarios/:id', (req, res) =>{
     const {id} = req.params;
+    const ID = Number(id);
+
+    const usuarios = usuarios.find(p => p.id === ID)
+    
     res.json(usuarios.id)
 });
 
