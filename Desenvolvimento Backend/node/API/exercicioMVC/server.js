@@ -6,9 +6,9 @@ app.use(express.json());
 
 
 app.get('/contatos', controller.listarUserController);
-app.get('contatos/:id', controller.listarUserIdController);
+app.get('/contatos/:id', controller.listarUserIdController);
 
-app.post('/contatos', controller.criarUser)
+app.post('/contatos', controller.criarUser);
 
 
 

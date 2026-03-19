@@ -26,7 +26,6 @@ export function criarUser(req, res){
     if(!nome || !telefone || !email){
         res.status(404).json({mensagem: "Requisição não pode ser processada!"});
     }
-
     const novoUser = model.criarUserDB(nome, telefone, email);
     res.status(201).json(novoUser);
 }
