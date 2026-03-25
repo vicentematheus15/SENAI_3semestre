@@ -5,6 +5,7 @@ import SobrePage from './pages/SobrePage'
 import ServicosPage from './pages/ServicosPage'
 import ContatoPage from './pages/ContatoPage'
 import PerfilPage from './pages/PerfilPage'
+import DisciplinasPage from './pages/DisciplinasPage'
 
 export default function App() {
   return (
@@ -15,6 +16,7 @@ export default function App() {
         <Route path="/servicos" element={<ServicosPage />} />
         <Route path="/contato" element={<ContatoPage />} />
         <Route path="/perfil" element={<PerfilPage />} />
+        <Route path="/disciplinas" element={<DisciplinasPage />} />
       </Routes>
     </Layout>
   )

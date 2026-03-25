@@ -11,6 +11,7 @@ const links = [
   { to: '/servicos', label: 'Serviços' },
   { to: '/contato', label: 'Contato' },
   { to: '/perfil', label: 'Perfil' },
+  { to: '/disciplinas', label: 'Disciplinas'}
 ]
 
 export default function SidebarMenu({ aberto, onClose }: SidebarMenuProps) {
