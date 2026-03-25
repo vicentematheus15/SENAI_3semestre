@@ -8,8 +8,8 @@ export function listarTarefas(req, res){
 export function criarTarefa(req, res){
     const {titulo, concluida} = req.body;
     
-    if(!titulo || !concluida){
-        return res.status(404).json({mensagem: "Dados obrigatórios não informados!"})
+    if(!titulo || concluida == undefined){
+        return res.status(400).json({mensagem: "Dados obrigatórios não informados!"})
     }
     
     const novaTarefa = model.criarTarefaDB(titulo, concluida);
