@@ -1,0 +1,180 @@
+:root {
+  font-family: Arial, Helvetica, sans-serif;
+  color: #1d2433;
+  background: #f4f6fb;
+}
+
+* {
+  box-sizing: border-box;
+}
+
+body {
+  margin: 0;
+}
+
+#root {
+  min-height: 100vh;
+}
+
+.app-shell {
+  display: flex;
+  min-height: 100vh;
+}
+
+.content-shell {
+  flex: 1;
+}
+
+.sidebar {
+  width: 260px;
+  background: #13233f;
+  color: white;
+  padding: 24px 18px;
+  position: fixed;
+  left: -280px;
+  top: 0;
+  bottom: 0;
+  transition: 0.3s ease;
+  z-index: 20;
+}
+
+.sidebar.open {
+  left: 0;
+}
+
+.sidebar h2 {
+  margin-bottom: 4px;
+}
+
+.sidebar-subtitle {
+  opacity: 0.8;
+  margin-bottom: 24px;
+}
+
+.menu-link {
+  display: block;
+  color: white;
+  text-decoration: none;
+  padding: 12px;
+  border-radius: 10px;
+  margin-bottom: 8px;
+}
+
+.menu-link:hover,
+.active-link {
+  background: #2b4a7f;
+}
+
+.overlay {
+  position: fixed;
+  inset: 0;
+  background: rgba(0, 0, 0, 0.35);
+  z-index: 10;
+}
+
+.topnav {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  background: white;
+  padding: 14px 20px;
+  box-shadow: 0 2px 12px rgba(0, 0, 0, 0.08);
+  position: sticky;
+  top: 0;
+  z-index: 5;
+}
+
+.topnav-left {
+  display: flex;
+  align-items: center;
+  gap: 14px;
+}
+
+.menu-button {
+  border: none;
+  background: #13233f;
+  color: white;
+  padding: 10px 14px;
+  border-radius: 8px;
+  cursor: pointer;
+}
+
+.brand {
+  text-decoration: none;
+  color: #13233f;
+  font-weight: bold;
+  font-size: 1.1rem;
+}
+
+.topnav-links {
+  display: flex;
+  gap: 18px;
+}
+
+.top-link {
+  text-decoration: none;
+  color: #25324a;
+  font-weight: 600;
+}
+
+.main-content {
+  padding: 28px;
+}
+
+.card-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
+  gap: 16px;
+  margin-top: 20px;
+}
+
+.card,
+.profile-box,
+.contact-form {
+  background: white;
+  border-radius: 14px;
+  padding: 20px;
+  box-shadow: 0 8px 18px rgba(17, 24, 39, 0.08);
+}
+
+.contact-form {
+  display: grid;
+  gap: 14px;
+  max-width: 520px;
+}
+
+.contact-form label {
+  display: grid;
+  gap: 6px;
+  font-weight: 600;
+}
+
+.contact-form input,
+.contact-form textarea {
+  border: 1px solid #ccd5e2;
+  border-radius: 10px;
+  padding: 12px;
+  font: inherit;
+}
+
+.contact-form button {
+  width: 140px;
+  border: none;
+  background: #13233f;
+  color: white;
+  padding: 12px 16px;
+  border-radius: 10px;
+  cursor: pointer;
+}
+
+@media (max-width: 700px) {
+  .topnav {
+    flex-direction: column;
+    align-items: flex-start;
+    gap: 12px;
+  }
+
+  .topnav-links {
+    flex-wrap: wrap;
+  }
+}
