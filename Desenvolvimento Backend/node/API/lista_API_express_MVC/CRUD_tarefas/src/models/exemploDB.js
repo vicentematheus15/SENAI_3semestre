@@ -1,4 +1,4 @@
-const tarefas = [
+export const tarefas = [
     { id: 1, titulo: "Estudar React", concluida: false },
     { id: 2, titulo: "Praticar JavaScript", concluida: false },
     { id: 3, titulo: "Revisar conceitos de API REST", concluida: false },

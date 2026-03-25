@@ -1,8 +1,13 @@
 import express from 'express';
-import * as controller from './controllers/tarefasController.js'
+import * as controller from './src/controllers/tarefasController.js'
 
 const app = express();
 app.use(express.json());
+
+app.get('/tarefas', controller.listarTarefas);
+app.post('/tarefas', controller.criarTarefa);
+
+
 
 
 app.listen(3000, () => {
