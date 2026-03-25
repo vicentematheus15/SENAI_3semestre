@@ -12,6 +12,8 @@ app.post('/contatos', controller.criarUser);
 
 app.put('/contatos/:id', controller.atualizarUser);
 
+app.delete('/contatos/:id', controller.deletarUser);
+
 
 
 app.listen(3000, ()=>{

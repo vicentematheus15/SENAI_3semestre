@@ -9,11 +9,8 @@ export function listarUserController(req, res){
 
 export function listarUserIdController(req, res){
     const {id} = req.params;
-    if(!id){
-        res.status(404).json({mensagem: "Requisição não pode ser processada!"});
-    }
-
     const resultListId = model.listarUserId(id)
+    
     if(!resultListId){
         res.status(404).json({mensagem: "Requisição não pode ser processada!"});
     }
@@ -41,4 +38,15 @@ export function atualizarUser(req, res){
         res.status(404).json({mensagem: "Usuário não encontrado!"});
     }
     res.status(200).json(atualizadoUser);
+}
+
+export function deletarUser(req, res){
+    const {id} = req.params;
+    
+    const deletedUser = model.deletarUserDB(id)
+
+    if(!deletedUser){
+        res.status(404).json({mensagem: "Usuário não encontrado!"});
+    }
+    return res.status(200).json({mensagem: "Usuário deletado com sucesso!", Usuário: (deletedUser)});
 }
