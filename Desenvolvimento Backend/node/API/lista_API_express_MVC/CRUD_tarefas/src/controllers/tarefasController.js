@@ -7,11 +7,11 @@ export function listarTarefas(req, res){
 
 export function criarTarefa(req, res){
     const {titulo, concluida} = req.body;
-    const novaTarefa = model.criarTarefaDB(titulo, concluida);
-
-    if(!novaTarefa){
-        res.status(404).json({mensagem: "Requisição não pode ser processada!"})
+    
+    if(!titulo || !concluida){
+        return res.status(404).json({mensagem: "Dados obrigatórios não informados!"})
     }
-
+    
+    const novaTarefa = model.criarTarefaDB(titulo, concluida);
     return res.status(201).json(novaTarefa)
 }
