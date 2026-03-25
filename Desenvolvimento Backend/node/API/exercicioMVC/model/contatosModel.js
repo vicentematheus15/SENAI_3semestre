@@ -17,3 +17,17 @@ export function criarUserDB(nome, telefone, email){
     contatos.push(novoUser)
     return novoUser
 }
+
+export function atualizarUserDB(id, dadosAtualizados){
+    const index = contatos.findIndex(contato => contato.id == id);
+
+    if(index === -1){
+        return null;
+    }
+
+    const contatoParaAtualizar = contatos[index];
+    const contatoAtualizado = {...contatoParaAtualizar, ...dadosAtualizados};
+
+    contatos[index] = contatoAtualizado;
+    return contatoAtualizado
+}

@@ -23,9 +23,22 @@ export function listarUserIdController(req, res){
 
 export function criarUser(req, res){
     const {nome, telefone, email} = req.body;
+    const novoUser = model.criarUserDB(nome, telefone, email);
+    
     if(!nome || !telefone || !email){
         res.status(404).json({mensagem: "Requisição não pode ser processada!"});
     }
-    const novoUser = model.criarUserDB(nome, telefone, email);
     res.status(201).json(novoUser);
+}
+
+export function atualizaUser(req, res){
+    const {id} = req.params;
+    const dadosAtualizados = req.body;
+
+    const atualizadoUser = model.atualizarUserDB(id, dadosAtualizados);
+
+    if(!atualizadoUser){
+        res.status(404).json({mensagem: "Usuário não encontrado!"});
+    }
+    res.status(200).json(atualizadoUser);
 }
