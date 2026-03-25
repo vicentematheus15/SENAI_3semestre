@@ -4,7 +4,7 @@ import * as model from '../model/contatosModel.js'
 export function listarUserController(req, res){
     const resultadoListar = model.listarUser();
 
-    res.status(200).json(resultadoListar)
+    return res.status(200).json(resultadoListar)
 }
 
 export function listarUserIdController(req, res){
@@ -12,20 +12,22 @@ export function listarUserIdController(req, res){
     const resultListId = model.listarUserId(id)
     
     if(!resultListId){
-        res.status(404).json({mensagem: "Requisição não pode ser processada!"});
+        return res.status(404).json({mensagem: "Usuário não encontrado!"});
     }
 
-    res.status(200).json(resultListId);
+    return res.status(200).json(resultListId);
 }
 
 export function criarUser(req, res){
     const {nome, telefone, email} = req.body;
-    const novoUser = model.criarUserDB(nome, telefone, email);
     
     if(!nome || !telefone || !email){
-        res.status(404).json({mensagem: "Requisição não pode ser processada!"});
+        res.status(400).json({mensagem: "Dados obrigatórios não informados!"});
     }
-    res.status(201).json(novoUser);
+    
+    const novoUser = model.criarUserDB(nome, telefone, email);
+
+    return res.status(201).json(novoUser);
 }
 
 export function atualizarUser(req, res){
@@ -35,9 +37,9 @@ export function atualizarUser(req, res){
     const atualizadoUser = model.atualizarUserDB(id, dadosAtualizados);
 
     if(!atualizadoUser){
-        res.status(404).json({mensagem: "Usuário não encontrado!"});
+        return res.status(404).json({mensagem: "Usuário não encontrado!"});
     }
-    res.status(200).json(atualizadoUser);
+    return res.status(200).json(atualizadoUser);
 }
 
 export function deletarUser(req, res){
@@ -46,7 +48,10 @@ export function deletarUser(req, res){
     const deletedUser = model.deletarUserDB(id)
 
     if(!deletedUser){
-        res.status(404).json({mensagem: "Usuário não encontrado!"});
+        return res.status(404).json({mensagem: "Usuário não encontrado!"});
     }
-    return res.status(200).json({mensagem: "Usuário deletado com sucesso!", Usuário: (deletedUser)});
+    return res.status(200).json({
+        mensagem: "Usuário deletado com sucesso!", 
+        usuario: deletedUser
+    });
 }

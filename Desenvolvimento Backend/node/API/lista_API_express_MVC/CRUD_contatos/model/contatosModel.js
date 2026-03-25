@@ -1,11 +1,10 @@
 //CAMADA MODEL - 
-import { deletarUser } from '../controller/contatosController.js';
 import {contatos} from './exemploDB.js'
 
 
 export function listarUser(){
 //emulando uma consulata (SELECT * from usuarios) com banco de dados
-    return (contatos)
+    return contatos
 }
 
 export function listarUserId(id){
