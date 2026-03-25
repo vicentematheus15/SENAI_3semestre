@@ -31,7 +31,7 @@ export function criarUser(req, res){
     res.status(201).json(novoUser);
 }
 
-export function atualizaUser(req, res){
+export function atualizarUser(req, res){
     const {id} = req.params;
     const dadosAtualizados = req.body;
 

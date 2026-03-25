@@ -10,7 +10,7 @@ app.get('/contatos/:id', controller.listarUserIdController);
 
 app.post('/contatos', controller.criarUser);
 
-app.put('/contatos/:id', controller.atualizaUser);
+app.put('/contatos/:id', controller.atualizarUser);
 
 
 
