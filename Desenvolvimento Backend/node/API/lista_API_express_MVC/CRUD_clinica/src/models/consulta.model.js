@@ -2,19 +2,15 @@ import { pacientes } from "./paciente.model.js";
 import { medicos } from "./medico.model.js";
 
 export function listarConsultasDB(){
-    const listaConsultaComNomes = () => {
-        return consultas.map(consulta => {
-            const paciente = pacientes.find(paciente => paciente.id === consulta.pacienteId);
-            const medico = medicos.find(medico => medico.id === consulta.medicoId);
-            return {
-                ...consulta,
-                nomePaciente: paciente ? paciente.nome : "Paciente não encontrado",
-                nomeMedico: medico ? medico.nome : "Médico não encontrado" 
-            }
-        })
-    }
-
-    return listaConsultaComNomes
+    return consultas.map(consulta => {
+        const paciente = pacientes.find(paciente => paciente.id === consulta.pacienteId);
+        const medico = medicos.find(medico => medico.id === consulta.medicoId);
+        return {
+            ...consulta,
+            nomePaciente: paciente ? paciente.nome : "Paciente não encontrado",
+            nomeMedico: medico ? medico.nome : "Médico não encontrado" 
+        }
+    });
 }
 
 
