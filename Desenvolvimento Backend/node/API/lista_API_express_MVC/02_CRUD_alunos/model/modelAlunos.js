@@ -1,0 +1,1 @@
+import {alunos} from './exemploDB.js'
