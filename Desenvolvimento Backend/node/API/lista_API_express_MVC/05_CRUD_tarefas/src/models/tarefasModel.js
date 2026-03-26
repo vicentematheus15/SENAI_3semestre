@@ -11,7 +11,17 @@ export function criarTarefaDB(titulo, concluida){
     return novaTarefa
 }
 
+export function atualizarTarefaDB(id, concluida){
+    const tarefa = tarefas.find(tarefa => tarefa.id == id);
+    if(!tarefa){
+        return null
+    }
 
+    tarefa.concluida = concluida
+
+    return tarefa
+
+}
 
 export function deletarTarefaDB(id){
     const index = tarefas.findIndex(tarefa => tarefa.id == id);

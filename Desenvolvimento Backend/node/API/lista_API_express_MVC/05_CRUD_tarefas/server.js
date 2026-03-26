@@ -6,7 +6,7 @@ app.use(express.json());
 
 app.get('/tarefas', controller.listarTarefas);
 app.post('/tarefas', controller.criarTarefa);
-// app.put('/tarefas/:id', controller.atualizarTarefa);
+app.put('/tarefas/:id', controller.atualizarTarefa);
 app.delete('/tarefas/:id', controller.deletarTarefa);
 
 
