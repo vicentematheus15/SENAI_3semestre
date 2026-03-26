@@ -6,6 +6,7 @@ app.use(express.json());
 
 
 app.get('/alunos', controller.listarAlunos);
+app.post('/alunos', controller.criarAluno);
 
 
 app.listen(3000, () => {
