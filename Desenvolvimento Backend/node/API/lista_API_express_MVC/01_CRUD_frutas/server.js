@@ -5,7 +5,7 @@ const app = express();
 app.use(express.json());
 
 app.get('/frutas', controller.listarFrutas);
-
+app.get('/frutas/:id', controller.mostrarFruta);
 
 
 app.listen(3000, () => {
