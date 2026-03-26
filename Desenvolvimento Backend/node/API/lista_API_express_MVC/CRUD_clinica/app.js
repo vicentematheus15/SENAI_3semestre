@@ -1,6 +1,7 @@
 import express from 'express';
 import * as pacienteController from './src/controllers/paciente.controller.js'
 import * as medicoController from './src/controllers/medico.controller.js'
+import * as consultaController from './src/controllers/consulta.controller.js'
 
 
 const app = express();

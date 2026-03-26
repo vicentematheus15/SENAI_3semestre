@@ -1,0 +1,1 @@
+import * as consultaModel from '../models/consulta.model'
