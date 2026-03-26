@@ -5,7 +5,7 @@ const app = express();
 app.use(express.json());
 
 
-
+app.get('/alunos', controller.listarAlunos);
 
 
 app.listen(3000, () => {
