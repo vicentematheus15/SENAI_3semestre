@@ -4,8 +4,7 @@ import * as controller from './controller/controllerProdutos.js'
 const app = express();
 app.use(express.json());
 
-
-
+app.get('/produtos', controller.listarProdutos)
 
 
 
