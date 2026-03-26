@@ -10,3 +10,15 @@ export function criarTarefaDB(titulo, concluida){
     tarefas.push(novaTarefa);
     return novaTarefa
 }
+
+
+
+export function deletarTarefaDB(id){
+    const index = tarefas.findIndex(tarefa => tarefa.id == id);
+    if(index === -1){
+        return null
+    }
+    
+    const tarefaDeletada = tarefas.splice(index, 1);
+    return tarefaDeletada
+}

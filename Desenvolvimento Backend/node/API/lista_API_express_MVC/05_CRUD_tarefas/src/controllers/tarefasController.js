@@ -15,3 +15,16 @@ export function criarTarefa(req, res){
     const novaTarefa = model.criarTarefaDB(titulo, concluida);
     return res.status(201).json(novaTarefa)
 }
+
+
+
+export function deletarTarefa(req, res){
+    const {id} = req.params;
+    const tarefaDeletada = model.deletarTarefaDB(id);
+
+    if(!tarefaDeletada){
+        return res.status(404).json({mensagem: "Tarefa não encontrada"})
+    }
+
+    return res.status(204).json(tarefaDeletada)
+}
