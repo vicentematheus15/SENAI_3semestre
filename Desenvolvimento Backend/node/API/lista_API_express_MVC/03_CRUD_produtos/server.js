@@ -5,7 +5,6 @@ const app = express();
 app.use(express.json());
 
 app.get('/produtos', controller.listarProdutos)
-app.get('/produtos')
 app.get('/produtos/:id', controller.mostrarProduto)
 
 app.listen(3000, () =>{
