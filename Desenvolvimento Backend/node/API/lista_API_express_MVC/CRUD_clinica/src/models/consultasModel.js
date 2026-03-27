@@ -1,25 +1,21 @@
-import { medicos } from "./medico.model.js";
-import { pacientes } from "./paciente.model.js";
+import { pacientes } from "./pacientesModel.js";
+import { medicos } from "./medicosModel.js";
+
+export function listarConsultasDB(){
+    return consultas.map(consulta => {
+        const paciente = pacientes.find(paciente => paciente.id === consulta.pacienteId);
+        const medico = medicos.find(medico => medico.id === consulta.medicoId);
+        return {
+            ...consulta,
+            nomePaciente: paciente ? paciente.nome : "Paciente não encontrado",
+            nomeMedico: medico ? medico.nome : "Médico não encontrado" 
+        }
+    });
+}
 
 
 
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-// DB simulado - Consultas (5 registros) com Data, Hora e Status separados
+// 3. Consultas (5 registros) com Data, Hora e Status separados
 export const consultas = [
   { 
     id: 1, 

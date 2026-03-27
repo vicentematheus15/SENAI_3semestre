@@ -1,12 +1,11 @@
+// import { medicos } from "./exemploDB.js";
+
 export function listarMedicosDB(){
     //select * medicos do banco
     return medicos
 }
 
-
-
-
-// DB simualdo -  Médicos (6 registros)
+// 2. Médicos (6 registros)
 export const medicos = [
   { id: 1, nome: "Dr. Roberto Arantes", especialidade: "Cardiologia" },
   { id: 2, nome: "Dra. Juliana Costa", especialidade: "Ortopedia" },

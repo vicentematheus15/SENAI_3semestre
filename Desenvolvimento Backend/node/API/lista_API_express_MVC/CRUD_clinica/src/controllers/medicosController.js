@@ -1,8 +1,8 @@
-import * as medicoModel from '../models/medico.model.js'
+import * as medicosModel from '../models/medicosModel.js'
 
 export function listarMedicos(req, res){
     const {especialidade} = req.query;
-    let listaMedicos = medicoModel.listarMedicosDB();
+    let listaMedicos = medicosModel.listarMedicosDB();
     if(!listaMedicos){
         return res.status(404).json({mensagem: "Requisição não pode ser processada!"})
     }

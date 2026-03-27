@@ -1,3 +1,5 @@
+// import { pacientes } from "./exemploDB.js";
+
 export function listarPacientesDB(){
     //select * para pegar todos ospacientes do banco
     return pacientes
@@ -10,13 +12,7 @@ export function cadastrarPacienteDB(nome, telefone){
 }
 
 
-
-
-
-
-
-
-// DB simulado - Pacientes (8 registros)
+// 1. Pacientes (8 registros)
 export const pacientes = [
   { id: 1, nome: "Ana Souza", telefone: "(48) 99123-4567" },
   { id: 2, nome: "Bruno Oliveira", telefone: "(48) 99876-5432" },

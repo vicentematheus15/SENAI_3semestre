@@ -1,17 +1,16 @@
 import express from 'express';
-import * as pacienteController from './src/controllers/paciente.controller.js'
-import * as medicoController from './src/controllers/medico.controller.js'
-import * as consultaController from './src/controllers/consulta.controller.js'
+import {medicosRoutes} from './src/routes/medicosRoutes.js'
+import {pacientesRoutes} from './src/routes/pacientesRoutes.js'
+import {consultasRoutes} from './src/routes/consultasRoutes.js'
 
 
 const app = express();
 app.use(express.json());
 
-app.get('/pacientes', pacienteController.listarPacientes);
-app.post('/pacientes', pacienteController.cadastrarPaciente);
 
-app.get('/medicos', medicoController.listarMedicos);
-
+app.use('/pacientes', pacientesRoutes);
+app.use('/medicos', medicosRoutes);
+app.use('/consultas', consultasRoutes);
 
 
 
