@@ -13,6 +13,18 @@ export function listarConsultasDB(){
     });
 }
 
+export function agendarConsultaDB(pacienteId, medicoId, data, hora){
+  const pacienteExiste = pacientes.find(paciente => paciente.id === pacienteId)
+  const medicoExiste = medicos.find(medico => medico.id === medicoId)
+  if(!pacienteExiste || !medicoExiste){
+    return null
+  }
+
+  const novaConsulta = {id: consultas.length+1, pacienteId: pacienteId, medicoId: medicoId, data: data, hora: hora, status: "agendada"}
+  consultas.push(novaConsulta);
+  return novaConsulta
+}
+
 
 
 // 3. Consultas (5 registros) com Data, Hora e Status separados
@@ -23,7 +35,7 @@ export const consultas = [
     medicoId: 1, 
     data: "2026-03-27", 
     hora: "10:00", 
-    status: "agendado" 
+    status: "agendada" 
   },
   { 
     id: 2, 
@@ -31,7 +43,7 @@ export const consultas = [
     medicoId: 4, 
     data: "2026-03-27", 
     hora: "14:30", 
-    status: "agendado" 
+    status: "agendada" 
   },
   { 
     id: 3, 
@@ -39,7 +51,7 @@ export const consultas = [
     medicoId: 2, 
     data: "2026-03-25", 
     hora: "09:00", 
-    status: "cancelado" 
+    status: "cancelada" 
   },
   { 
     id: 4, 
@@ -47,7 +59,7 @@ export const consultas = [
     medicoId: 6, 
     data: "2026-03-20", 
     hora: "11:15", 
-    status: "realizado" 
+    status: "realizada" 
   },
   { 
     id: 5, 
@@ -55,6 +67,6 @@ export const consultas = [
     medicoId: 3, 
     data: "2026-03-30", 
     hora: "16:00", 
-    status: "agendado" 
+    status: "agendada" 
   }
 ];

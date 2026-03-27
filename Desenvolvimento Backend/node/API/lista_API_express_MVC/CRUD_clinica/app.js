@@ -1,7 +1,7 @@
 import express from 'express';
-import {medicosRoutes} from './src/routes/medicosRoutes.js'
-import {pacientesRoutes} from './src/routes/pacientesRoutes.js'
-import {consultasRoutes} from './src/routes/consultasRoutes.js'
+import {medicosRoutes} from './src/routes/medicosRoutes.js';
+import {pacientesRoutes} from './src/routes/pacientesRoutes.js';
+import {consultasRoutes} from './src/routes/consultasRoutes.js';
 
 
 const app = express();
