@@ -6,7 +6,10 @@ export function listarPacientesDB(){
 }
 
 export function cadastrarPacienteDB(nome, telefone){
-    const novoPaciente = {id: pacientes.length+1, nome: nome, telefone: telefone};
+    const novoId = pacientes.length > 0
+    ? pacientes[pacientes.length - 1].id + 1 
+    : 1;
+    const novoPaciente = {id: novoId, nome: nome, telefone: telefone};
     pacientes.push(novoPaciente);
     return novoPaciente
 }
