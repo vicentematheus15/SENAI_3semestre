@@ -20,3 +20,12 @@ export function agendarConsulta(req, res){
     }
     return res.status(200).json(novaConsulta)
 }
+
+export function cancelarConsulta(req, res){
+    const {id} = req.params;
+    const consultaParaCancelar = consultasModel.cancelarConsultaDB(id);
+    if(!consultaParaCancelar){
+        return res.status(404).json({mensagem: "Consulta não encontrada!"})
+    }
+    return res.status(200).json({mensagem: "Consulta cancelada com sucesso!"})
+}

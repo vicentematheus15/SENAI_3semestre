@@ -25,6 +25,14 @@ export function agendarConsultaDB(pacienteId, medicoId, data, hora){
   return novaConsulta
 }
 
+export function cancelarConsultaDB(id){
+  const consultaAlvo = consultas.find(consulta => consulta.id === Number(id));
+  if(!consultaAlvo){
+    return null
+  }
+  consultaAlvo.status = "cancelada"
+  return consultaAlvo
+} 
 
 
 // 3. Consultas (5 registros) com Data, Hora e Status separados

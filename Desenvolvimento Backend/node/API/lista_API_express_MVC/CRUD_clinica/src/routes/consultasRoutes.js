@@ -5,3 +5,4 @@ export const consultasRoutes = Router();
 
 consultasRoutes.get('/', consultasController.listarConsultas);
 consultasRoutes.post('/', consultasController.agendarConsulta);
+consultasRoutes.delete('/:id', consultasController.cancelarConsulta)
