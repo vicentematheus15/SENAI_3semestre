@@ -1,4 +1,4 @@
-import * as medicoModel from '../models/medico.model.js'
+import * as medicoModel from '../models/medicoModel.js'
 
 export function listarMedicos(req, res){
     const {especialidade} = req.query;

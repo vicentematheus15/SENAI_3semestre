@@ -1,4 +1,4 @@
-import * as pacienteModel from '../models/paciente.model.js'
+import * as pacienteModel from '../models/pacienteModel.js'
 
 export function listarPacientes(req, res){
     const listaPacientes = pacienteModel.listarPacientesDB()

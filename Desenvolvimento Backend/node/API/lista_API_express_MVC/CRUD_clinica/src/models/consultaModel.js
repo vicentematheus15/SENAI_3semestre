@@ -1,5 +1,5 @@
-import { pacientes } from "./paciente.model.js";
-import { medicos } from "./medico.model.js";
+import { pacientes } from "./pacienteModel.js";
+import { medicos } from "./medicoModel.js";
 
 export function listarConsultasDB(){
     return consultas.map(consulta => {

@@ -1,7 +1,7 @@
 import express from 'express';
-import * as pacienteController from './src/controllers/paciente.controller.js';
-import * as medicoController from './src/controllers/medico.controller.js';
-import * as consultaController from './src/controllers/consulta.controller.js';
+import * as pacienteController from './src/controllers/pacienteController.js';
+import * as medicoController from './src/controllers/medicoController.js';
+import * as consultaController from './src/controllers/consultaController.js';
 
 
 const app = express();
@@ -12,8 +12,8 @@ app.post('/pacientes', pacienteController.cadastrarPaciente);
 
 app.get('/medicos', medicoController.listarMedicos);
 
-app.get('/consultas', consultaController.listarConsultas)
-
+app.get('/consultas', consultaController.listarConsultas);
+app.post('/consultas', consultaController.agendarConsulta);
 
 
 
