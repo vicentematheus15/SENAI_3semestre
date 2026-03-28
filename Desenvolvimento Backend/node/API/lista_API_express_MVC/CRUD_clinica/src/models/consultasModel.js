@@ -14,13 +14,13 @@ export function listarConsultasDB(){
 }
 
 export function agendarConsultaDB(pacienteId, medicoId, data, hora){
-  const pacienteExiste = pacientes.find(paciente => paciente.id === pacienteId)
-  const medicoExiste = medicos.find(medico => medico.id === medicoId)
+  const pacienteExiste = pacientes.find(paciente => paciente.id === Number(pacienteId))
+  const medicoExiste = medicos.find(medico => medico.id === Number(medicoId))
   if(!pacienteExiste || !medicoExiste){
     return null
   }
 
-  const novaConsulta = {id: consultas.length+1, pacienteId: pacienteId, medicoId: medicoId, data: data, hora: hora, status: "agendada"}
+  const novaConsulta = {id: gerarId(), pacienteId: pacienteId, medicoId: medicoId, data: data, hora: hora, status: "agendada"}
   consultas.push(novaConsulta);
   return novaConsulta
 }
@@ -78,3 +78,12 @@ export const consultas = [
     status: "agendada" 
   }
 ];
+
+let ultimoId = consultas.length > 0
+  ? consultas[consultas.length - 1].id
+  : 0
+
+  function gerarId(){
+    ultimoId++
+    return ultimoId
+  }

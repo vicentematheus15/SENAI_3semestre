@@ -3,12 +3,9 @@ import * as medicosModel from '../models/medicosModel.js'
 export function listarMedicos(req, res){
     const {especialidade} = req.query;
     let listaMedicos = medicosModel.listarMedicosDB();
-    if(!listaMedicos){
-        return res.status(404).json({mensagem: "Requisição não pode ser processada!"})
-    }
 
     if(especialidade){
-        listaMedicos = listaMedicos.filter(medico => medico.especialidade.toLowerCase() == especialidade.toLowerCase())
+        listaMedicos = listaMedicos.filter(medico => medico.especialidade.toLowerCase() === especialidade.toLowerCase())
     }
 
     if(especialidade && listaMedicos.length === 0){

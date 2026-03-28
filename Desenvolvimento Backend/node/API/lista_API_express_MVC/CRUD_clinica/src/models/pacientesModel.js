@@ -1,20 +1,3 @@
-// import { pacientes } from "./exemploDB.js";
-
-export function listarPacientesDB(){
-    //select * para pegar todos ospacientes do banco
-    return pacientes
-}
-
-export function cadastrarPacienteDB(nome, telefone){
-    const novoId = pacientes.length > 0
-    ? pacientes[pacientes.length - 1].id + 1 
-    : 1;
-    const novoPaciente = {id: novoId, nome: nome, telefone: telefone};
-    pacientes.push(novoPaciente);
-    return novoPaciente
-}
-
-
 // 1. Pacientes (8 registros)
 export const pacientes = [
   { id: 1, nome: "Ana Souza", telefone: "(48) 99123-4567" },
@@ -26,3 +9,25 @@ export const pacientes = [
   { id: 7, nome: "Gisele Rocha", telefone: "(48) 94321-0123" },
   { id: 8, nome: "Hugo Ferreira", telefone: "(48) 93210-9876" }
 ];
+
+export function listarPacientesDB(){
+    //select * para pegar todos ospacientes do banco
+    return pacientes
+}
+
+let ultimoId = pacientes.length > 0
+    ? pacientes[pacientes.length - 1].id
+    : 0;
+
+export function gerarId() {
+  ultimoId++;
+  return ultimoId;
+}
+
+export function cadastrarPacienteDB(nome, telefone){
+
+    const novoPaciente = {id: gerarId(), nome: nome, telefone: telefone};
+    pacientes.push(novoPaciente);
+    return novoPaciente
+}
+
