@@ -33,7 +33,7 @@ describe('add()', () => {
         expect(add(6, -8)).toBe(-2)
     })
 
-    it('Rtornar a soma com uma parâmetro sendo 0', () => {
+    it('Retornar a soma com uma parâmetro sendo 0', () => {
         expect(add(0, 2)).toBe(2)
     })
 })
@@ -53,29 +53,29 @@ describe('subtract()', () => {
 })
 
 describe('multply()', () => {
-    it('Retorna a multiiplicação de dois valores positivos', () => {
+    it('Retornar a multiiplicação de dois valores positivos', () => {
         expect(multiply(2, 5)).toBe(10)
     })
 
-    it('Retorna uma multiplicação com um valor sendo 0', () => {
+    it('Retornar uma multiplicação com um valor sendo 0', () => {
         expect(multiply(6, 0)).toBe(0)
     })
 
-    it('Retorna um resultado negativo', () => {
+    it('Retornar um resultado negativo', () => {
         expect(multiply(-3, 5)).toBe(-15)
     })
 })
 
 describe('divide()', () => {
-    it('Retorna um divisão exata', () => {
+    it('Retornar um divisão exata', () => {
         expect(divide(100, 20)).toBe(5)
     })
 
-    it('Retorna um resultado decimal', () => {
-        expect(divide(60, 5)).toBe(12.5)
+    it('Retornar um resultado decimal', () => {
+        expect(divide(8, 5)).toBe(1.6)
     })
 
     it('Deve retornar um erro ao tentar dividir por 0', () => {
-        expect(divide(18, 0)).toThrow("Não é possível dividir por 0!")
+        expect(() => (divide(18, 0))).toThrow("Não é possível dividir por 0!")
     })
 })
