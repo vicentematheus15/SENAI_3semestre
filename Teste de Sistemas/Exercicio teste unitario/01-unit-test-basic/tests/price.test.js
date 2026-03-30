@@ -50,7 +50,10 @@ describe("calculateTotal()", () => {
         const result = () => calculateTotal(price, quantity);
 
         //Assert
-        expect(result).toThrow()
+        expect(result).toThrow("Preço inválido");
+
+        //da pra juntar o act e o expect mandando diretamente a arrow function do calculateTotal para dentro do expect em vez de guardar ela em uam variável antes, assim:
+        //expect(() => calculateTotal(price, quantity)).toThrow("Preço inválido")
 
     })
 })
