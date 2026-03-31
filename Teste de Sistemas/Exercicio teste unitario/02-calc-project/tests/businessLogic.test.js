@@ -33,3 +33,43 @@ import { describe, it, expect } from 'vitest';
 import { calculateAverage, calculateDiscountedPrice } from '../src/businessLogic.js';
 
 // escreva seus testes aqui
+
+describe('calculateAverage()', () => {
+    it('Calcular a média de um array com múltiplos valores', () => {
+        expect(calculateAverage([25, 30, 35, 50, 10])).toBe(30)
+    })
+
+    it('Calcular a média d euam array com um único elemento', () => {
+        expect(calculateAverage([50])).toBe(50)
+    })
+
+    it('Deve lançar um erro ao receber um array vazio', () => {
+        expect(() => (calculateAverage([]))).toThrow("A entrada deve ser um array não vazio")
+    })
+
+    it('Deve retornar um erro ao receber uma entrada inválida (null, string)', () => {
+        expect(() => (calculateAverage(["50"]))).toThrow("A entrada deve ser um número")
+    })
+})
+
+describe('calculateDiscountedPrice()', () => {
+    it('', () => {
+        expect(calculateDiscountedPrice()).toBe()
+    })
+
+    it('', () => {
+        expect(calculateDiscountedPrice()).toBe()
+    })
+
+    it('', () => {
+        expect(calculateDiscountedPrice()).toBe()
+    })
+
+    it('', () => {
+        expect(() => (calculateDiscountedPrice())).toThrow()
+    })
+
+    it('', () => {
+        expect(() => (calculateDiscountedPrice())).toThrow()
+    })
+})
