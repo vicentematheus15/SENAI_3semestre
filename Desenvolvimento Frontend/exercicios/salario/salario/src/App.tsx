@@ -27,6 +27,8 @@ function App() {
 
         <input 
           id='aumento'
+          min='0'
+          max='100'
           value={aumento}
           onChange={(e) => setAumento(e.target.value)}
         />
