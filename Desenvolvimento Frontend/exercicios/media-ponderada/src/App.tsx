@@ -59,7 +59,7 @@ function calcularMedia(){
       <div>
         <button onClick={calcularMedia}>Calcular</button>
       </div>
-      <div>{media}</div>
+      <div>{media?.toFixed(2)}</div>
     </section>
   )
 }
