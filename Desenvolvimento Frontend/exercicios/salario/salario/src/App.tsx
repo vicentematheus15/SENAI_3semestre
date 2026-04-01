@@ -17,7 +17,25 @@ function App() {
   }
 
   return(
+    <section>
+      <div>  
+        <input
+          id='salarioBase'
+          value={salarioBase}
+          onChange={(e) => setSalarioBase(e.target.value)}
+        />
 
+        <input 
+          id='aumento'
+          value={aumento}
+          onChange={(e) => setAumento(e.target.value)}
+        />
+      </div>
+      <div>
+        <button onClick={calcularAumento}>Calcular</button>
+      </div>
+      <h2>{novoSalario}</h2>
+    </section>
   )
 }
 
