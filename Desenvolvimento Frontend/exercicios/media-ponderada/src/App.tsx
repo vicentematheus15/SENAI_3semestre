@@ -24,7 +24,43 @@ function calcularMedia(){
 }
 
   return(
-    
+    <section>
+      <div>
+        <label htmlFor="nota1">Nota 1 (peso 1)</label> <br />
+        <input
+        id="nota1" 
+        type="text"
+        min='0'
+        max='10'
+        value={nota1}
+        onChange={(e) => setnota1(e.target.value)} 
+        />
+        <br />
+        <label htmlFor="nota2">Nota 2 (peso 3)</label> <br />
+        <input 
+        id="nota2"
+        type="text"
+        min='0'
+        max='10'
+        value={nota2} 
+        onChange={(e) => setnota2(e.target.value)}
+        />
+        <br />
+        <label htmlFor="nota3">Nota 3 (peso 2)</label> <br />
+        <input 
+        id="nota3"
+        type="text"
+        min='0'
+        max='10'
+        value={nota3} 
+        onChange={(e) => setnota3(e.target.value)}
+        />
+      </div>
+      <div>
+        <button onClick={calcularMedia}>Calcular</button>
+      </div>
+      <div>{media}</div>
+    </section>
   )
 }
 
