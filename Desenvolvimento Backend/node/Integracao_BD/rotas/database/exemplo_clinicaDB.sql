@@ -6,7 +6,7 @@ CREATE TABLE contatos(
 	email VARCHAR(55) NOT NULL UNIQUE
 );
 
---população teste
+-- população teste fictício
 INSERT INTO contatos (nome, telefone, email) VALUES
 ('Ana Silva', '11987654321', 'ana.silva@email.com'),
 ('Bruno Oliveira', '21976543210', 'bruno.o@provider.net'),
