@@ -1,7 +1,7 @@
 import * as module from '../model/contatosModel.js';
 
-export function listar(req, res){
-    const todaLista = module.listarContatos();
+export async function listar(req, res){
+    const todaLista = await module.listarContatos();
     res.status(200).json(todaLista);
 }
 
