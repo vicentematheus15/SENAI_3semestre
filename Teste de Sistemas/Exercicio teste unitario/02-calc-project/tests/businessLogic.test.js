@@ -53,23 +53,23 @@ describe('calculateAverage()', () => {
 })
 
 describe('calculateDiscountedPrice()', () => {
-    it('', () => {
-        expect(calculateDiscountedPrice()).toBe()
+    it('Deve retornar o valor correto em um desconto válido', () => {
+        expect(calculateDiscountedPrice(200, 10)).toBe(180)
     })
 
-    it('', () => {
-        expect(calculateDiscountedPrice()).toBe()
+    it('Deve retornar o valor original quando o desconto for 0%', () => {
+        expect(calculateDiscountedPrice(200, 0)).toBe(200)
     })
 
-    it('', () => {
-        expect(calculateDiscountedPrice()).toBe()
+    it('Deve retornar 0 quando o desconto for de 100%', () => {
+        expect(calculateDiscountedPrice(200, 100)).toBe(0)
     })
 
-    it('', () => {
-        expect(() => (calculateDiscountedPrice())).toThrow()
+    it('Deve retornar um erro se o desconto for maior que 100%', () => {
+        expect(() => (calculateDiscountedPrice(200, 110))).toThrow("O desconto deve ser entre 0% e 100%")
     })
 
-    it('', () => {
-        expect(() => (calculateDiscountedPrice())).toThrow()
+    it('Deve retornar um erro se o preço for igual a zero ou negativo', () => {
+        expect(() => (calculateDiscountedPrice(-200, 10))).toThrow("O preço deve ser maior ou igual a zero!")
     })
 })
