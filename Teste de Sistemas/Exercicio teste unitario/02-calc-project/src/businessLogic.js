@@ -42,5 +42,3 @@ export function calculateDiscountedPrice(price, discountPercent) {
     
     return subtract(price, discountValue)
 }
-
-console.log(calculateDiscountedPrice(200, 10))
