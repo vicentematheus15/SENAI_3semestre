@@ -20,8 +20,9 @@ export async function buscarContatoID(id){
 
 export async function cadastrarContato(nome, telefone, email){
     try{
-        const novoContato = await pool.query(
-            `INSERT INTO contatos (nome, telefone, email) VALUES ($1, $2, $3) RETURNING *`, [nome, telefone, email])
+        const novoContato = await pool.query(`
+        INSERT INTO contatos (nome, telefone, email) 
+            VALUES ($1, $2, $3) RETURNING *`, [nome, telefone, email])
         return novoContato.rows;
     }catch(erro){
         console.log("DEU ERRO: ", erro);
