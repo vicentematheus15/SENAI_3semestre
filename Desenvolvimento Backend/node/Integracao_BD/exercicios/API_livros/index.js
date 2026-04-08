@@ -8,7 +8,7 @@ app.use(express.json());
 
 app.use('/livros', livrosRoutes);
 
-const PORT = process.env.PORT_DB
+const PORT = process.env.PORT
 
 app.listen(PORT, () => {
     console.log(`Servidor rodando em http://localhost:${PORT}`);    
