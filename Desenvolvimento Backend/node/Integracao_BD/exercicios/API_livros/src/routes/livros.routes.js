@@ -5,6 +5,6 @@ export const router = Router();
 
 router.get('/', controller.listar);
 router.get('/:id', controller.buscarLivro);
-
+router.post('/', controller.criarLivro);
 
 export default router
