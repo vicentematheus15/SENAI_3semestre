@@ -1,6 +1,6 @@
 import 'dotenv/config';
 import express from 'express';
-import livrosRoutes from './src/routes/livros.js';
+import livrosRoutes from './src/routes/livros.routes.js';
 
 const app = express();
 app.use(express.json());

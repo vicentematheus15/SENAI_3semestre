@@ -1,6 +1,6 @@
+import 'dotenv/config';
 import express from 'express';
 import {routerContatos} from './router/contatosRouter.js'
-import 'dotenv/config';
 
 const app = express();
 app.use(express.json());
