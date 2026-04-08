@@ -1,15 +1,15 @@
 import 'dotenv/config';
 import express from 'express';
-import routerLivros from './src/routes/routerLivros.js';
+import livrosRoutes from './src/routes/livros.js';
 
 const app = express();
 app.use(express.json());
 
 
-app.use('/livros', routerLivros);
+app.use('/livros', livrosRoutes);
 
 const PORT = process.env.PORT_DB
 
 app.listen(PORT, () => {
-    console.log('Servidor rodando em http://localhost', PORT);    
+    console.log(`Servidor rodando em http://localhost:${PORT}`);    
 });
