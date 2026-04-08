@@ -1,0 +1,3 @@
+npm init -y
+npm install express pg dotenv
+New-Item -Path "src\controllers", "src\models", "src\database", "src\routes" -ItemType Directory
