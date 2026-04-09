@@ -3,6 +3,6 @@ import * as controller from '../controllers/produtos.controller.js'
 
 const router = Router();
 
-router.get('/', );
+router.get('/', controller.buscarTodos);
 
 export default router
