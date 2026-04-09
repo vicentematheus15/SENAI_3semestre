@@ -40,3 +40,22 @@ export async function criarProduto(nome, categoria, preco, quantidade){
         throw error;
     }
 }
+
+export async function atualizarProduto(id, nome, categoria, preco, quantidade){
+    try {
+        const result = await pool.query(`
+            UPDATE produtos
+            SET nome = $2,
+                categoria = $3,
+                preco = $4,
+                quantidade = $5
+            WHERE id = $1 
+            RETURNING *`, 
+            [id, nome, categoria, preco, quantidade]
+        );
+        return result.rows[0]
+    } catch (error) {
+        console.error("Ocorreu um erro: ", error);
+        throw error
+    }
+}
