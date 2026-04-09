@@ -61,3 +61,17 @@ export async function atualizarProduto(req, res){
 
     }
 }
+
+export async function removerProduto(req, res){
+    try {
+        const {id} = req.params;
+        const produtoRemovido = await model.removerProduto(id);
+        if(!produtoRemovido){
+            return res.status(404).json({mensagem: "Produto não encontrado!"})
+        }
+        return res.status(204).send();
+    } catch (error) {
+        console.error("Ocorreu um erro: ", error);
+        return res.status(500).json({mensagem: "Erro ao remover produto!"})
+    }
+}

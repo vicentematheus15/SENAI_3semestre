@@ -7,5 +7,6 @@ router.get('/', controller.buscarTodos);
 router.get('/:id', controller.buscarPorId);
 router.post('/', controller.criarProduto);
 router.put('/:id', controller.atualizarProduto);
+router.delete('/:id', controller.removerProduto);
 
 export default router

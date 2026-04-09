@@ -59,3 +59,22 @@ export async function atualizarProduto(id, nome, categoria, preco, quantidade){
         throw error
     }
 }
+
+export async function removerProduto(id){
+    try {
+        const result = await pool.query(`
+            DELETE FROM produtos
+            WHERE id = $1
+            RETURNING *`, 
+            [id]
+        );
+        if(result.rowCount === 0){
+            return false
+        }
+        return result.rows[0]
+
+    } catch (error) {
+        console.error("Ocorreu um erro: ", error);
+        throw error
+    }
+}
