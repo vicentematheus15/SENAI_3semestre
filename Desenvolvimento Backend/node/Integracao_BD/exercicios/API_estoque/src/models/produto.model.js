@@ -24,3 +24,19 @@ export async function buscarPorId(id){
         throw error
     }
 }
+
+export async function criarProduto(nome, categoria, preco, quantidade){
+    try {
+        const result = await pool.query(`
+            INSERT INTO produtos (nome, categoria, preco, quantidade)
+            VALUES ($1, $2, $3, $4)
+            RETURNING *`, 
+            [nome, categoria, preco, quantidade]
+        );
+        return result.rows[0];
+        
+    } catch (error) {
+        console.error("Ocorreu um erro: ", error);
+        throw error;
+    }
+}
