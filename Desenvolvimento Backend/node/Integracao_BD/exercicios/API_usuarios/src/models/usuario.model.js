@@ -48,7 +48,7 @@ export async function buscarPorId(id){
     }
 }
 
-export async function atualizarUsuario(id, novoNome, novoEmail, novaSenha){
+export async function atualizarUsuario(id, nome, email, senha){
     try {
         const resultado = await pool.query(`
             UPDATE usuarios 
@@ -57,7 +57,7 @@ export async function atualizarUsuario(id, novoNome, novoEmail, novaSenha){
                 senha = $4
             WHERE id = $1
             RETURNING *`, 
-        [id, novoNome, novoEmail, novaSenha]);
+        [id, nome, email, senha]);
         return resultado.rows[0]
     } catch (error) {
         console.error("Ocorreu um erro: ", error);

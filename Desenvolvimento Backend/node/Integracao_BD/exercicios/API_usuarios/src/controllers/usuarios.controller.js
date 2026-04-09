@@ -32,14 +32,11 @@ export async function atualizar(req, res){
     try {
         const {id} = req.params;
         const {nome, email, senha} = req.body;
-        const novoNome = nome
-        const novoEmail = email
-        const novaSenha = senha
         const usuarioExiste = await model.buscarPorId(id);
         if(usuarioExiste === false){
             return res.status(400).json({mensagem: "Usuário não existe!"})
         }else{
-            const usuarioAtualizado = await model.atualizarUsuario(id, novoNome, novoEmail, novaSenha);
+            const usuarioAtualizado = await model.atualizarUsuario(id, nome, email, senha);
             res.status(200).json({mensagem: "Dados atualizados!"})
         }
     } catch (error) {
