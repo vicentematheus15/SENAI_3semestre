@@ -4,5 +4,6 @@ import * as controller from '../controllers/produtos.controller.js'
 const router = Router();
 
 router.get('/', controller.buscarTodos);
+router.get('/:id', controller.buscarPorId);
 
 export default router

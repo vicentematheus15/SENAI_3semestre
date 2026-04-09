@@ -9,3 +9,18 @@ export async function buscarTodos(){
         throw error
     }
 }
+
+export async function buscarPorId(id){
+    try {
+        const produtoAlvo = await pool.query(`
+            SELECT * FROM produtos
+            WHERE id = $1`, [id])
+        if(produtoAlvo.rows.length === 0){
+            return false
+        }
+        return produtoAlvo.rows[0]
+    } catch (error) {
+        console.error("Ocorreu um erro: ", error);
+        throw error
+    }
+}
