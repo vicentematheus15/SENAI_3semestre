@@ -31,3 +31,35 @@ export async function buscarPorEmail(email, senha){
         console.error("Ocorreu um erro: ", error);
     }
 }
+
+export async function buscarPorId(id){
+    try {
+        const resultado = await pool.query(`
+            SELECT * FROM usuarios 
+            WHERE id = $1`, 
+            [id])
+        if(resultado.rows.length === 0){
+            return false
+        }else{
+        return resultado.rows[0];
+        }
+    } catch (error) {
+        console.error("Ocorreu um erro: ", error);
+    }
+}
+
+export async function atualizarUsuario(id, novoNome, novoEmail, novaSenha){
+    try {
+        const resultado = await pool.query(`
+            UPDATE usuarios 
+            SET nome = $2, 
+                email = $3, 
+                senha = $4
+            WHERE id = $1
+            RETURNING *`, 
+        [id, novoNome, novoEmail, novaSenha]);
+        return resultado.rows[0]
+    } catch (error) {
+        console.error("Ocorreu um erro: ", error);
+    }
+}
