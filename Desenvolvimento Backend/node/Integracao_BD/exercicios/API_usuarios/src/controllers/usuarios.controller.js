@@ -40,10 +40,8 @@ export async function atualizar(req, res){
             return res.status(400).json({mensagem: "Usuário não existe!"})
         }else{
             const usuarioAtualizado = await model.atualizarUsuario(id, novoNome, novoEmail, novaSenha);
-            res.status(200).json({mensagem: "Dados atualizados!", dados: usuarioAtualizado})
+            res.status(200).json({mensagem: "Dados atualizados!"})
         }
-
-
     } catch (error) {
         res.status(404).json({mensagem: "Ocorreu um erro: ", error})
     }
