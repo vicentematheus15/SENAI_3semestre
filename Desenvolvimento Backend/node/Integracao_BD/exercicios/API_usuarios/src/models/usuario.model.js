@@ -1,10 +1,14 @@
 import pool from "../database/db.js";
+import bcrypt from 'bcryptjs'
 
 export async function criarUsuario(nome, email, senha){
     try {
+        //Convertendo a senha em hash
+        const senhaHash = await bcrypt.hash(senha, 10);
+
         const novoUsuario = await pool.query(`
             INSERT INTO usuarios (nome, email, senha)
-            VALUES ($1, $2, $3) RETURNING *`, [nome, email, senha]);
+            VALUES ($1, $2, $3) RETURNING *`, [nome, email, senhaHash]);
         return novoUsuario.rows
     } catch (error) {
         console.error("Ocorreu um erro: ", error);
