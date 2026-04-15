@@ -6,10 +6,11 @@ export async function criarUsuario(nome, email, senha){
         //Convertendo a senha em hash
         const senhaHash = await bcrypt.hash(senha, 10);
 
-        const novoUsuario = await pool.query(`
+        const query = await pool.query(`
             INSERT INTO usuarios (nome, email, senha)
             VALUES ($1, $2, $3) RETURNING *`, [nome, email, senhaHash]);
-        return novoUsuario.rows
+        return query.rows[0];
+
     } catch (error) {
         console.error("Ocorreu um erro: ", error);
     }
@@ -21,16 +22,8 @@ export async function buscarPorEmail(email, senha){
             SELECT * FROM usuarios 
             WHERE email = $1`,
             [email]);
-        if(resultado.rows.length === 0){
-            return false
-        }
-
-        const usuario = resultado.rows[0];
-        if(usuario.senha === senha){
-            return true
-        }else{
-            return false
-        }
+        return resultado.rows[0];
+        
     } catch (error) {
         console.error("Ocorreu um erro: ", error);
     }
@@ -42,11 +35,8 @@ export async function buscarPorId(id){
             SELECT * FROM usuarios 
             WHERE id = $1`, 
             [id])
-        if(resultado.rows.length === 0){
-            return false
-        }else{
         return resultado.rows[0];
-        }
+        
     } catch (error) {
         console.error("Ocorreu um erro: ", error);
     }
@@ -54,6 +44,7 @@ export async function buscarPorId(id){
 
 export async function atualizarUsuario(id, nome, email, senha){
     try {
+        const novaSenhaHash = await bcrypt.hash(senha, 10)
         const resultado = await pool.query(`
             UPDATE usuarios 
             SET nome = $2, 
@@ -61,7 +52,12 @@ export async function atualizarUsuario(id, nome, email, senha){
                 senha = $4
             WHERE id = $1
             RETURNING *`, 
-        [id, nome, email, senha]);
+        [id, nome, email, novaSenhaHash]);
+
+        if(resultado.rows.length === 0){
+            return {mensagem: 'Usuário não encontrado'}
+        }
+        delete resultado.rows[0].senha
         return resultado.rows[0]
     } catch (error) {
         console.error("Ocorreu um erro: ", error);

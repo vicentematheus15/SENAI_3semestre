@@ -9,11 +9,11 @@ export async function autenticarJWT(req, res, next){
         }
 
         //Tratando o token
-        const Token = Auth.split(' ')[1];
+        const token = Auth.split(' ')[1];
 
         //Verificar (verify) o token
-        const resVerify = jwt.verify(Token, process.env.JWT_SECRET);
-        res.body = resVerify;
+        const tokenDecodificado = jwt.verify(token, process.env.JWT_SECRET);
+        res.body = tokenDecodificado;
         next();
 
     } catch (error) {
