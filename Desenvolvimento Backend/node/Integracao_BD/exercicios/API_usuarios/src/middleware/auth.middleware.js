@@ -4,7 +4,7 @@ export async function autenticarJWT(req, res, next){
     try {
         const Auth = req.headers['Authorization'];
         //Verificando o Authorization do Header da requisição
-        if(!Auth || !Auth.startsWith['Bearer']){
+        if(!Auth || !Auth.startsWith('Bearer')){
             return res.status(401).json({erro: "Token inválido"})
         }
 
@@ -13,7 +13,7 @@ export async function autenticarJWT(req, res, next){
 
         //Verificar (verify) o token
         const tokenDecodificado = jwt.verify(token, process.env.JWT_SECRET);
-        res.body = tokenDecodificado;
+        req.usuario = tokenDecodificado;
         next();
 
     } catch (error) {
