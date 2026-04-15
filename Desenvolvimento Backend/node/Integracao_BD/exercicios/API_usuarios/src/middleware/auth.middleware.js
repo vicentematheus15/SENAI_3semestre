@@ -2,7 +2,7 @@ import jwt from 'jsonwebtoken';
 
 export async function autenticarJWT(req, res, next){
     try {
-        const Auth = req.headers['Authorization'];
+        const Auth = req.headers['authorization'];
         //Verificando o Authorization do Header da requisição
         if(!Auth || !Auth.startsWith('Bearer')){
             return res.status(401).json({erro: "Token inválido"})

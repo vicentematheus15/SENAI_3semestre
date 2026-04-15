@@ -31,7 +31,7 @@ export async function login(req, res){
     
     try {
         const usuario = await model.buscarPorEmail(email, senha);
-        const comparandoHash = bcrypt.compare(senha, usuario.senha);
+        const comparandoHash = await bcrypt.compare(senha, usuario.senha);
         
         if(!comparandoHash){
             return res.status(401).json({mensagem: "Credenciais inválidas!"});
