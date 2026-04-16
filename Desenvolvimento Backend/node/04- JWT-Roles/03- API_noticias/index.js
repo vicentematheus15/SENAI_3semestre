@@ -1,18 +1,17 @@
 import 'dotenv/config';
 import expres from 'express';
-import authRoutes from './src/routes/noticia.routes.js';
-import authRoutes from './src/routes/usuario.routes.js';
+// import noticiaRoutes from './src/routes/noticia.routes.js';
+import usuarioRoutes from './src/routes/usuario.routes.js';
 
 
 const app = expres();
 app.use(expres.json());
 
-app.use('/noticias', authRoutes);
-app.use('/usuarios', authRoutes);
+// app.use('/noticias', noticiaRoutes);
+app.use('/usuarios', usuarioRoutes);
 
-const port = process.env.DB_PORT;
+const port = process.env.PORT;
 
-app.use(port, () => {
+app.listen(port, () => {
     console.log(`Servidor rodando na porta: ${port}`);
-    
 })

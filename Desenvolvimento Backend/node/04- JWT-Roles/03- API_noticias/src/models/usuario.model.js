@@ -24,7 +24,7 @@ export async function criar(nome, email, senha, perfil) {
         const result = await pool.query(`
             INSERT INTO usuarios (nome, email, senha_hash, perfil)
             VALUES ($1, $2, $3, $4)
-            RETUNING id, email, perfil`,
+            RETURNING id, email, perfil`,
             [nome, email, senhaHash, perfil]);
 
         return result.rows[0];
