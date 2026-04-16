@@ -12,6 +12,11 @@ export async function autenticar(req, res, next){
     next();
 }
 
-export async function exigirAdmin(req, res, next){
-    
+export function exigirAdmin(perfilEsperado){
+    return(req, res, next) => {
+        if(req.usuario.perfil !== perfilEsperado){
+            return res.status(403).json({erro: 'Acesso restrito a administradores!'})
+        }
+        next();
+    }
 }

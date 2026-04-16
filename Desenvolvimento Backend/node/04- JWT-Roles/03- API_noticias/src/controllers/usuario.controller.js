@@ -2,7 +2,7 @@ import * as model from '../models/usuario.model.js';
 import bcrypt from 'bcryptjs';
 import jwt from 'jsonwebtoken';
 
-export async function cadastro(req, res){
+export async function cadastrar(req, res){
     const {nome, email, senha, perfil} = req.body;
     try {
         const usuarioExiste = await model.buscarPorEmail(email);

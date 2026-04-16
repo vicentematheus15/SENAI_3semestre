@@ -5,6 +5,6 @@ import { autenticar, exigirAdmin } from "../middlewares/auth.middleware.js";
 const router = Router();
 
 router.get('/', autenticar, controller.buscar);
-router.post('/', autenticar, exigirAdmin, controller.criar)
+router.post('/', autenticar, exigirAdmin('admin'), controller.criar);
 
 export default router

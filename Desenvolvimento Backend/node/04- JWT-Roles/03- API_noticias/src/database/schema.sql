@@ -28,3 +28,8 @@ CREATE TABLE noticias (
   "senha": "123",
   "perfil": "leitor"
 }
+
+{
+  "titulo": "Primeira notícia",
+  "conteudo": "Texto da notícia aqui..."
+}
