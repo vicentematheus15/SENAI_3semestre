@@ -5,7 +5,7 @@ import authRoutes from './src/routes/cliente.routes.js';
 const app = express();
 app.use(express.json());
 
-app.use('/auth', authRoutes);
+app.use('/clientes', authRoutes);
 
 const PORT = process.env.PORT
 

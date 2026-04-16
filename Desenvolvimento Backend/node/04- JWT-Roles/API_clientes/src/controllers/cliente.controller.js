@@ -12,7 +12,6 @@ export async function cadastro(req, res) {
         }
         
         const novoCliente = await model.criar(nome, email, senha);
-        delete novoCliente.senha
 
         return res.status(201).json({
             mensagem: 'Cliente criado com sucesso', 
@@ -22,6 +21,36 @@ export async function cadastro(req, res) {
         
 
     } catch (error) {
-         res.status(500).json({ error: error.message });
+        res.status(500).json({ error: error.message });
     }
+}
+
+export async function login(req, res){
+    const {email, senha} = req.body;
+    try {
+        const usuario = await model.buscaPorEmail(email);
+        if(!usuario){
+            return res.status(401).json({ message: 'Impossivel fazer login' });
+        }
+        //Comparando a senha que o usuario digitou (senha) com a que retorna do banco caso encontre o usuario(usuario.senha)
+        const comparandoHash = await bcrypt.compare(senha, usuario.senha_hash);
+        if(!comparandoHash){
+            return res.status(401).json({message: 'Credenciais inválidas' });
+        }
+        delete usuario.senha_hash //apagando senha do usuario que vem da busca, por segurança
+
+        //Assinando token
+        const tokenUsuario = jwt.sign(
+            {id: usuario.id, nome: usuario.nome},
+            process.env.JWT_SECRET,
+            {expiresIn: process.env.JWT_EXPIRES_IN},
+        );
+        return res.json({token: tokenUsuario, usuario: usuario});
+    } catch (error) {
+        res.status(500).json({ error: error.message });
+    }
+}
+
+export async function perfil(req, res){
+    return res.json(req.usuario);
 }

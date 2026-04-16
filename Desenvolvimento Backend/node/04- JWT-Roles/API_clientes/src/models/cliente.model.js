@@ -22,9 +22,9 @@ export async function criar(nome, email, senha) {
         const senhaHash = await bcrypt.hash(senha, 10);
     
         const result = await pool.query(`
-            INSERT INTO clientes (nome, email, senhaHash)
+            INSERT INTO clientes (nome, email, senha_Hash)
             VALUES ($1, $2, $3) 
-            RETURNING *`, 
+            RETURNING id, nome, email`, 
             [nome, email, senhaHash]);
 
         return result.rows[0]
