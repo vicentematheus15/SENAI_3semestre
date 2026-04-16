@@ -3,5 +3,9 @@ import bcrypt from 'bcryptjs';
 import jwt from 'jsonwebtoken';
 
 export async function buscar(req, res){
+
+}
+
+export async function criar(req, res){
     
-} 
+}

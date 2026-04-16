@@ -11,3 +11,7 @@ export async function autenticar(req, res, next){
     req.usuario = decoded;
     next();
 }
+
+export async function exigirAdmin(req, res, next){
+    
+}
