@@ -14,3 +14,17 @@ CREATE TABLE noticias (
   conteudo     TEXT NOT NULL,
   criado_em    TIMESTAMP DEFAULT NOW()
 );
+
+{
+  "nome": "Rafael Admin",
+  "email": "rafael@portal.com",
+  "senha": "admin123",
+  "perfil": "admin"
+}
+
+{
+  "nome": "Carlos",
+  "email": "carlos@portal.com",
+  "senha": "123",
+  "perfil": "leitor"
+}
