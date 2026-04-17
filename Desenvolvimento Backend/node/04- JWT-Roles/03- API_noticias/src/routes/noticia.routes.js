@@ -6,5 +6,6 @@ const router = Router();
 
 router.get('/', autenticar, controller.buscar);
 router.post('/', autenticar, exigirAdmin('admin'), controller.criar);
+router.delete('/:id', autenticar, exigirAdmin('admin'), controller.remover)
 
 export default router

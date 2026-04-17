@@ -29,3 +29,22 @@ export async function criar(titulo, conteudo){
         return (error)
     }
 }
+
+export async function remover(id){
+    try {
+        const result = await pool.query(`
+            DELETE FROM noticias
+            WHERE id = $1
+            RETURNING *`,
+            [id]);
+        
+        if(result.rowCount === 0){
+            return false
+        }
+        return result.rows[0];
+        
+    } catch (error) {
+        console.log(error);
+        return (error)
+    }
+}

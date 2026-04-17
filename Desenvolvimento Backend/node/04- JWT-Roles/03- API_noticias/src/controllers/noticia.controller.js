@@ -24,3 +24,16 @@ export async function criar(req, res){
         res.json({ error: error.message });
     }
 }
+
+export async function remover(req, res){
+    const {id} = req.params;
+    try {
+        const noticiaAlvo = await model.remover(id);
+        if(!noticiaAlvo){
+            return res.status(404).json({mensagem: 'Não encontrado!'})
+        }
+        return res.status(204).send()
+    } catch (error) {
+        res.json({ error: error.message });
+    }
+}
