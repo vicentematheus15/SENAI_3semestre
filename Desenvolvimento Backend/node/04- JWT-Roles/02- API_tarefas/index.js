@@ -1,12 +1,13 @@
 import 'dotenv/config';
 import express from 'express';
-import router from './src/routes/usuario.routes';
+import usuarioRoutes from './src/routes/usuario.routes';
+import tarefaRoutes from './src/routes/tarefa.routes';
 
 const app = express();
 app.use(express.json());
 
-app.use('/usuarios',  );
-app.use('/tarefas', );
+app.use('/usuarios',  usuarioRoutes);
+app.use('/tarefas', tarefaRoutes);
 
 
 
