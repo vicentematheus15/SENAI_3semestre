@@ -33,6 +33,23 @@ export async function criar(descricao, usuarioId) {
     }
 }
 
-export async function name(id, usuarioId) {
-    
+export async function concluir(id, usuarioId) {
+    try {
+        const result = await pool.query(`
+            UPDATE tarefas
+            SET concluida = $1
+            WHERE id = $2
+            AND usuario_id = $3
+            RETURNING *`, 
+            [true, id, usuarioId])
+
+        if(result.rowCount == 0){
+            return false
+        }
+        return result.rows[0]
+
+    } catch (error) {
+        console.log(error);
+        return (error)
+    }
 }

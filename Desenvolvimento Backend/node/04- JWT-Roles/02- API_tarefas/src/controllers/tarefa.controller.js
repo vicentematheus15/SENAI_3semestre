@@ -27,5 +27,18 @@ export async function criar(req, res) {
 }
 
 export async function concluir(req, res) {
-    
+    const {id} = req.params;
+    const usuarioId = req.usuario.id
+    try {
+        const tarefa = await model.concluir(id, usuarioId);
+        if(!tarefa){
+            return res.status(404).json({mensagem: 'Não foi possível alterar a tarefa!'})
+        }
+        return res.status(200).json({
+            mensagem: 'Tarefa Concluída!!',
+            tarefa: tarefa
+        });
+    } catch (error) {
+        res.status(500).json({ error: error.message });
+    }
 }
