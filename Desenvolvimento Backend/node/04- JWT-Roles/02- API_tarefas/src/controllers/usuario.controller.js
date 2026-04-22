@@ -20,5 +20,27 @@ export async function cadastrar(req, res) {
 }
 
 export async function login(req, res) {
-    
+    const {email, senha} = req.body;
+    try {
+        const usuario = await model.buscaPorEmail(email);
+        if(!usuario){
+            return res.status(400).json({ mensagem: 'Não foi possível realizar o login' });
+        }
+
+        const comparandoHash = bcrypt.compare(senha, usuario.senha_hash)
+        if(!comparandoHash){
+            res.stats(400).json({mensagem: 'Credenciais inválidas!'})
+        }
+        delete usuario.senha_hash
+
+        const tokenUsuario = jwt.sign(
+            {id: usuario.id, nome: usuario.nome},
+            process.env.JWT_SECRET,
+            {expiresIn: process.env.JWT_EXPIRES_IN},
+        );
+
+        return res.json({token: tokenUsuario, usuario: usuario})
+    } catch (error) {
+        res.status(500).json({ error: error.message });
+    }
 }

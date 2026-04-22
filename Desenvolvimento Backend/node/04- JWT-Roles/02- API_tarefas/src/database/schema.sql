@@ -15,3 +15,11 @@ CREATE TABLE tarefas (
   concluida  BOOLEAN DEFAULT FALSE,
   usuario_id  INTEGER REFERENCES usuarios(id) ON DELETE CASCADE
 );
+
+{
+  "nome": "Vicente",
+  "email": "vicente@email.com",
+  "senha": "123"
+}
+
+{"token":"eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6MSwibm9tZSI6IlZpY2VudGUiLCJpYXQiOjE3NzY4ODY4NDEsImV4cCI6MTc3Njg5NDA0MX0.2nlkEUN4zzhaSpxFcv6SB3s4l-mJ7XibAtQ3FnTp7_0","usuario":{"id":1,"nome":"Vicente","email":"vicente@email.com"}}
