@@ -23,3 +23,11 @@ CREATE TABLE tarefas (
 }
 
 {"token":"eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6MSwibm9tZSI6IlZpY2VudGUiLCJpYXQiOjE3NzY4ODY4NDEsImV4cCI6MTc3Njg5NDA0MX0.2nlkEUN4zzhaSpxFcv6SB3s4l-mJ7XibAtQ3FnTp7_0","usuario":{"id":1,"nome":"Vicente","email":"vicente@email.com"}}
+
+{
+  "nome": "Ana",
+  "email": "ana@email.com",
+  "senha": "123"
+}
+
+{"token":"eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6Miwibm9tZSI6IkFuYSIsImlhdCI6MTc3Njg5MDM2MCwiZXhwIjoxNzc2ODk3NTYwfQ.f5xyOyxepMRM8zCCanW0xMU1cOvmCfNcx1__9qPfycY","usuario":{"id":2,"nome":"Ana","email":"ana@email.com"}}
