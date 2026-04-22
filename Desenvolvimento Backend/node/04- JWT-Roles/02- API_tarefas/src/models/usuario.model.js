@@ -3,13 +3,13 @@ import bcrypt from 'bcryptjs';
 
 export async function criar(nome, email, senha) {
     try {
-        const senha_hash = bcrypt.hash(senha, 10);
+        const senhaHash = await bcrypt.hash(senha, 10);
 
         const result = await pool.query(`
-            INSERT INTO usuario (nome, email, senha_hash)
+            INSERT INTO usuarios (nome, email, senha_hash)
             VALUES ($1, $2, $3)
             RETURNING id, nome, email`, 
-            [nome, email, senha_hash])
+            [nome, email, senhaHash])
 
         return result.rows[0];
     } catch (error) {
