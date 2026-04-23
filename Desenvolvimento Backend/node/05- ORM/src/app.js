@@ -5,6 +5,8 @@ import sequelize from './database/db.js'
 const app = express();
 app.use(express.json());
 
+
+
 const port = process.env.API_PORT || 3000
 
 sequelize.sync({ alter: true }).then(() => {
