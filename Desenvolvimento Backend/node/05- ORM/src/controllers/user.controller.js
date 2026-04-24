@@ -36,6 +36,41 @@ export async function createUser(req, res) {
     }
 };
 
+export async function getUserById(req, res){
+    try {
+        const userId = await User.findByPk(req.params.id)
+        if(!userId){
+            return res.status(404).json({erro: "Usuário não encontrado!"});
+        }
+        const userResponse = userId.toJSON();
+        delete userResponse.senha;
+        return res.status(201).json(userResponse);
+        
+    } catch (error) {
+        return res.status(500).json(error);
+    }
+} 
+
+export async function updateUser(req, res){
+    try {
+        const user = await User.findByPk(req.params.id);
+        if(!user){
+            return res.status(404).json({erro: "Usuário não enontrado!"})
+        }
+        await user.update(req.body);
+
+        const userResponse = user.toJSON();
+        delete userResponse.senha;
+        return res.status(200).json(userResponse)
+    } catch (error) {
+        return res.status(500).json(error);
+    }
+}
+
+export async function deleteUser(res, res){
+    
+}
+
 export async function login(req, res){
     try {
         const {email, senha} = req.body;
@@ -71,14 +106,3 @@ export async function findUserByEmail(email){
         throw error;
     }
 } 
-
-export async function getUserById(req, res){
-    try {
-        const userId = await User.findByPk(req.params.id)
-        return res.status(201).json(userId)
-    
-    } catch (error) {
-        return res.status(500).json(error);
-    }
-} 
-
