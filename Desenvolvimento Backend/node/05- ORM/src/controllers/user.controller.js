@@ -13,21 +13,72 @@ export async function getAllUsers(req, res) {
 }
 
 export async function createUser(req, res) {
-    const {nome, email, senha} = req.body;
     try {
-        const senhaHash = bcrypt.hash(senha, 10)
+        const {nome, email, senha} = req.body;
+        const senhaHash = await bcrypt.hash(senha, 10)
         const createdUser = await User.create({
             nome: nome,
             email: email,
             senha: senhaHash
-        })
-        delete createUser.senhaHash
+        });
+
+        //Deletar a senha DA RESPOSTA DA REQUISIÇÃO
+        const userResponse = createdUser.toJSON();
+        delete userResponse.senha;
+
         return res.status(201).json({
             mensagem: "Usuário criado!",
-            user: createdUser
+            user: userResponse
         })
 
     } catch (error) {
         return res.status(500).json(error);
     }
+};
+
+export async function login(req, res){
+    try {
+        const {email, senha} = req.body;
+        
+        const user = await findUserByEmail(email);
+        if(!user){
+            res.status(401).json({mensagem: "Usuário não encontrado"})
+        }
+
+        const comparandoHash = await bcrypt.compare(senha, user.senha);
+        if(!comparandoHash){
+            return res.status(401).json({mensagem: "Credenciais inválidas!"})
+        }
+        //FAZER LOGIN POR ULTIMO
+        return res.status()
+        
+    } catch (error) {
+        return res.status(500).json(error);
+    }
 }
+
+export async function findUserByEmail(email){
+    try {
+        const user = await User.findOne({
+            where: {
+                email: email
+            }
+        })
+        return user
+    
+    } catch (error) {
+        console.error(error);
+        throw error;
+    }
+} 
+
+export async function getUserById(req, res){
+    try {
+        const userId = await User.findByPk(req.params.id)
+        return res.status(201).json(userId)
+    
+    } catch (error) {
+        return res.status(500).json(error);
+    }
+} 
+

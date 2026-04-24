@@ -25,3 +25,5 @@ export const User = sequelize.define('User',
         tableName: 'produtos', // nome da tabela no banco
         timestamps: true, // cria createdAt e updatedAt automaticamente
 });
+
+
