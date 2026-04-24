@@ -57,8 +57,8 @@ export async function updateUser(req, res){
         if(!user){
             return res.status(404).json({erro: "Usuário não enontrado!"})
         }
-        await user.update(req.body);
-
+        await user.update(req.body); //altera o objeto que recebu os dados do usuário no banco
+        //deleta a senha DA RESPOSTA NA REQUISIÇÃO
         const userResponse = user.toJSON();
         delete userResponse.senha;
         return res.status(200).json(userResponse)
@@ -67,8 +67,17 @@ export async function updateUser(req, res){
     }
 }
 
-export async function deleteUser(res, res){
-    
+export async function deleteUser(req, res){
+    try {
+        const user = await User.findByPk(req.params.id);
+        if(!user){
+            return res.status(404).json({erro: "Usuário não encontrado!"})
+        }
+        await user.destroy(); //deleta o objeto que recebeu a linha do banco com os dados do usuario
+        return res.status(204).send();
+    } catch (error) {
+        return res.status(500).json(error);
+    }
 }
 
 export async function login(req, res){
