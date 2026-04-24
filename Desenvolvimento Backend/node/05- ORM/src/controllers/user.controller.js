@@ -93,7 +93,7 @@ export async function login(req, res){
         if(!comparandoHash){
             return res.status(401).json({mensagem: "Credenciais inválidas!"})
         }
-        //FAZER LOGIN POR ULTIMO
+        //FALTA ASSINAR COM JWT O LOGIN
         return res.status(201).json({mensagem: "Login feito com sucesso!"})
         
     } catch (error) {
