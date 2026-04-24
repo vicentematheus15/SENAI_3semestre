@@ -84,7 +84,7 @@ export async function login(req, res){
     try {
         const {email, senha} = req.body;
         
-        const user = await findUserByEmail(email);
+        const user = await User.findOne({where:{email: email}});
         if(!user){
             res.status(401).json({mensagem: "Usuário não encontrado"})
         }
@@ -94,24 +94,9 @@ export async function login(req, res){
             return res.status(401).json({mensagem: "Credenciais inválidas!"})
         }
         //FAZER LOGIN POR ULTIMO
-        return res.status()
+        return res.status(201).json({mensagem: "Login feito com sucesso!"})
         
     } catch (error) {
         return res.status(500).json(error);
     }
 }
-
-export async function findUserByEmail(email){
-    try {
-        const user = await User.findOne({
-            where: {
-                email: email
-            }
-        })
-        return user
-    
-    } catch (error) {
-        console.error(error);
-        throw error;
-    }
-} 
