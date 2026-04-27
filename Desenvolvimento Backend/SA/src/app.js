@@ -1,5 +1,5 @@
 import 'dotenv/config';
-import sequelize, { Sequelize } from './database/db.js';
+import sequelize, { Sequelize } from './database/database.js';
 import express from 'express';
 import cors from 'cors';
 import authRoutes from './routes/auth.routes.js';
