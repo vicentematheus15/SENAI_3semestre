@@ -1,8 +1,8 @@
 import { Router } from "express";
-import * as controller from '../controllers/usuario.controller.js'
+import * as controller from '../controllers/auth.controller.js'
 
 const authRoutes = Router();
 
-authRoutes.post('/auth', controller.cadastrar);
+authRoutes.post('/cadastro', controller.cadastrar);
 
 export default authRoutes;
