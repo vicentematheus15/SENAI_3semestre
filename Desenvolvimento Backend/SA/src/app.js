@@ -19,10 +19,8 @@ app.use(express.json());
 
 app.use('/auth', authRoutes);
 
-const port = process.env.API_PORT;
-
-sequelize.sync({alter: true}, () =>{
-    app.listen(port, () => {
-        console.log(`Servidor rodando em http://localhost:${port}`);
-    })
-})
+sequelize.sync({alter: true}).then(() => {
+    app.listen(process.env.API_PORT, () => 
+        console.log(`Servidor rodando em http://localhost:${process.env.API_PORT}`)
+    );
+});
