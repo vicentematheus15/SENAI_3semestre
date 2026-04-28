@@ -61,5 +61,12 @@ export function isElite(winRate){
 }
 
 export function calcKDA(kills, deaths, assists){
-    
+    if(kills < 0 || deaths < 0 || assists < 0){
+        throw new Error("As estatísticas não podem ser números negativos");
+    }
+    const parcialKDA = (kills + assists)
+    if(deaths === 0){
+        return parcialKDA
+    }
+    return (parcialKDA / deaths)
 }
