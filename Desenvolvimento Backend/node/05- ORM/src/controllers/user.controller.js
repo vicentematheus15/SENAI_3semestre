@@ -1,4 +1,5 @@
 import { User } from '../models/user.model.js';
+import jwt from 'jsonwebtoken';
 import bcrypt from 'bcryptjs';
 
 export async function getAllUsers(req, res) {
@@ -93,8 +94,19 @@ export async function login(req, res){
         if(!comparandoHash){
             return res.status(401).json({mensagem: "Credenciais inválidas!"})
         }
-        //FALTA ASSINAR COM JWT O LOGIN
-        return res.status(201).json({mensagem: "Login feito com sucesso!"})
+        //ASSINANDO COM JWT O LOGIN
+        const userToken = jwt.sign(
+            {user: user.nome, id: user.id},
+            process.env.JWT_SECRET,
+            {expiresIn: process.env.JWT_EXPIRES_IN}
+        );
+
+        return res.status(201).json({
+            mensagem: "Login feito com sucesso!",
+            userToken: userToken,
+            id: user.id,
+            nome: user.nome
+        });
         
     } catch (error) {
         return res.status(500).json(error);
