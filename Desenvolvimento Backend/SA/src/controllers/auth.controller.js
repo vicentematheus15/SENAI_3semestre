@@ -22,13 +22,13 @@ export async function cadastrar(req, res){
         });
 
         return res.status(201).json({
-            id: Usuario.id,
-            nome: Usuario.nome,
-            email: Usuario.email,
-            createdAt: Usuario.createdAt    
+            id: novoUsuario.id,
+            nome: novoUsuario.nome,
+            email: novoUsuario.email,
+            createdAt: novoUsuario.createdAt    
         })
         
     } catch (error) {
-        
+        return res.status(500).json(error);
     }
 }
