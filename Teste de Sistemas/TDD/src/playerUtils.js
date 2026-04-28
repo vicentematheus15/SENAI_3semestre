@@ -11,3 +11,13 @@
  *   3. Rode novamente → veja ela ficar VERDE
  *   4. Repita até todos os testes passarem
  */
+
+export function calcWinRate(wins, totalGames){
+    if(totalGames === 0){
+        throw new Error("O numero de jogos não pode ser zero.")        
+    }
+    if(wins > totalGames || wins < 0){
+        throw new Error("O número de vitórias não pode ser negativo ou maior que o número de jogos.");
+    }
+    return (wins / totalGames) * 100
+}
