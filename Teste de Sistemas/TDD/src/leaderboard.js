@@ -14,3 +14,25 @@
 
 import { calcWinRate, getRank } from './playerUtils.js'
 
+const players = []
+
+export function createPlayer(name, wins, totalGames){
+    if(!name){
+        throw new Error("O nome não pode estar vazio.");
+    }
+
+    const winRate = calcWinRate(wins, totalGames);
+
+    const newPlayer = {
+        name: name,
+        wins: wins,
+        totalGames: totalGames,
+        winRate: winRate,
+        rank: getRank(winRate)
+    }
+
+    players.push(newPlayer)
+    return newPlayer
+}
+
+
