@@ -48,3 +48,13 @@ export function getTopPlayer(players){
     });
     return topPlayer
 }
+
+export function filterByRank(players, rank){
+    const validRanks = ['Lendário', 'Diamante', 'Ouro', 'Prata', 'Bronze']
+    if(!validRanks.includes(rank)){
+        throw new Error("Insira um rank válido para busca!");
+        
+    }
+    return players.filter(player => player.rank === rank)
+}
+
