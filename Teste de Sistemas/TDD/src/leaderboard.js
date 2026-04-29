@@ -35,4 +35,16 @@ export function createPlayer(name, wins, totalGames){
     return newPlayer
 }
 
+export function getTopPlayer(players){
+    if(players.length === 0){
+        throw new Error("Não há jogadores na lista");
+    }
+    let topPlayer = players[0];
 
+    players.forEach(player => {
+        if(player.winRate > topPlayer.winRate){
+            topPlayer = player
+        }
+    });
+    return topPlayer
+}
