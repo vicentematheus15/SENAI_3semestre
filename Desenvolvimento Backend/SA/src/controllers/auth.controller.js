@@ -38,7 +38,7 @@ export async function login(req, res) {
     try {
         const {email, senha} = req.body;
         if(!email || !senha){  //valida secampos foram preenchidos
-            res.status(400).json({erro: 'Dados incompletos!'})
+            return res.status(400).json({erro: 'Dados incompletos!'})
         }
         //valida se existe uma usuario com o email informado no banco
         const usuario = await Usuario.findOne({where: { email }})
@@ -46,9 +46,9 @@ export async function login(req, res) {
             return res.status(409).json({erro: 'E-mail já cadastrado'})
         }
         //valida a senha do usuario, comparando o que foi digitado com a senha criptografada no banco
-        const validandoSenha = await bcrypt.compare(senha, usuario.senhaHash);
+        const validandoSenha = await bcrypt.compare(senha, usuario.senha);
         if(!validandoSenha){
-            res.status(401).json({erro: 'Dados inválidos!'})
+            return res.status(401).json({erro: 'Dados inválidos!'})
         }
 
         //assina o jwt do usuario para permitir rotas privadas
@@ -58,7 +58,13 @@ export async function login(req, res) {
             {expiresIn: process.env.JWT_EXPIRES_IN}
         );
 
-        res.status(200).json(token, {usuario: { id, nome, email } })
+        res.status(200).json({
+            token, 
+            usuario: {
+                id: usuario.id, 
+                nome: usuario.nome, 
+                email: usuario.email 
+            }});
 
     } catch (error) {
         return res.status(500).json(error);
