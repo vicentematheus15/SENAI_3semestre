@@ -58,3 +58,40 @@ export function filterByRank(players, rank){
     return players.filter(player => player.rank === rank)
 }
 
+export function getLeaderboardSummary(players){
+    if(players.length === 0){
+        throw new Error("Não há jogadores na lista");
+    }
+
+    const summary = {
+        total: players.length,
+        legendary: 0, 
+        diamond: 0,
+        gold: 0, 
+        silver: 0,
+        bronze: 0
+    }
+
+    players.forEach(player => {
+        switch (player.rank) {
+            case 'Lendário':
+                summary.legendary++
+                break;
+
+            case 'Diamante':
+                summary.diamond++
+                break;
+
+            case 'Ouro':
+                summary.gold++
+                break;
+            case 'Prata':
+                summary.silver++
+                break;
+            case 'Bronze':
+                summary.bronze++
+                break;
+        }
+    })
+    return summary
+}
