@@ -45,6 +45,10 @@ export async function login(req, res) {
         if(!usuario){
             return res.status(409).json({erro: 'E-mail já cadastrado'})
         }
+        //valida se a conta esta desativada
+        if(usuario.ativo === false){
+            return res.status(403).json({erro: 'Conta desativada'})
+        }
         //valida a senha do usuario, comparando o que foi digitado com a senha criptografada no banco
         const validandoSenha = await bcrypt.compare(senha, usuario.senha);
         if(!validandoSenha){
