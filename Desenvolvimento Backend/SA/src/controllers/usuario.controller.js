@@ -11,6 +11,7 @@ export async function perfil(req, res){
         return res.status(200).json(usuario)
     
     } catch (error) {
+        console.error(error);
         return res.status(500).json({ erro: 'Erro interno do servidor' });
     }
 }
@@ -54,6 +55,7 @@ export async function atualizarPerfil(req, res){
 
         return res.status(200).json(usuarioAtualizado)
     } catch (error) {
+        console.error(error);
         return res.status(500).json({ erro: 'Erro interno do servidor' });
     }
 }
@@ -67,6 +69,7 @@ export async function desativarConta(req, res) {
         await usuario.update({ ativo: false }) 
         return res.status(204).send(); 
     } catch (error) {
+        console.error(error);
         return res.status(500).json({ erro: 'Erro interno do servidor' });
     }
 }

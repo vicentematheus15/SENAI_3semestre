@@ -30,6 +30,7 @@ export async function cadastrar(req, res){
         })
         
     } catch (error) {
+        console.error(error);
         return res.status(500).json({ erro: 'Erro interno do servidor' });
     }
 }
@@ -71,6 +72,7 @@ export async function login(req, res) {
             }});
 
     } catch (error) {
+        console.error(error);
         return res.status(500).json({ erro: 'Erro interno do servidor' });
     }
 }
