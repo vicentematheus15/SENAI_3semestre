@@ -30,7 +30,7 @@ export async function cadastrar(req, res){
         })
         
     } catch (error) {
-        return res.status(500).json(error);
+        return res.status(500).json({ erro: 'Erro interno do servidor' });
     }
 }
 
@@ -40,10 +40,10 @@ export async function login(req, res) {
         if(!email || !senha){  //valida secampos foram preenchidos
             return res.status(400).json({erro: 'Dados incompletos!'})
         }
-        //valida se existe uma usuario com o email informado no banco
+        //valida se existe um usuario com o email informado no banco
         const usuario = await Usuario.findOne({where: { email }})
         if(!usuario){
-            return res.status(409).json({erro: 'E-mail já cadastrado'})
+            return res.status(401).json({erro: 'Dados inválidos'})
         }
         //valida se a conta esta desativada
         if(usuario.ativo === false){
@@ -71,6 +71,6 @@ export async function login(req, res) {
             }});
 
     } catch (error) {
-        return res.status(500).json(error);
+        return res.status(500).json({ erro: 'Erro interno do servidor' });
     }
 }
