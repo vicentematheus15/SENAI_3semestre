@@ -50,3 +50,15 @@ export async function atualizarPerfil(req, res){
     }
 }
 
+export async function desativarConta(req, res) {
+    try {
+        const usuario = await Usuario.findByPk(req.usuario.id);
+        if(!usuario){
+            return res.status(404).json({ erro: 'Usuário não encontrado' })
+        }
+        await usuario.update({ ativo: false }) 
+        return res.status(204).send(); 
+    } catch (error) {
+        return res.status(500).json(error);
+    }
+}
