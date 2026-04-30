@@ -1,5 +1,6 @@
 import { Usuario } from "../models/usuario.model.js";
 import jwt from 'jsonwebtoken';
+import bcrypt from "bcryptjs";
 
 
 export async function perfil(req, res){
@@ -14,10 +15,5 @@ export async function perfil(req, res){
     }
 }
 
-export async function desativarConta(req, res) {
-    try {
-        const 
-    } catch (error) {
-        return res.status(500).json(error);
-    }
-}
+
+
