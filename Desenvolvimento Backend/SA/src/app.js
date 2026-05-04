@@ -3,17 +3,19 @@ import sequelize from './database/database.js';
 import express from 'express';
 import authRoutes from './routes/auth.routes.js';
 import usuarioRoutes from './routes/usuario.routes.js';
-import './models/usuario.model.js';
 import { helmetconfig } from './config/helmet.js';
 import { corsConfig } from './config/cors.js';
+
+//importa o model para garantir registro no sequelize
+import './models/usuario.model.js';
 
 
 
 const app = express();
 
 
-app.use(helmetconfig); //variavel com todas as configurações de segurança do helmet
-app.use(corsConfig); //variavel com todas as configurações de segurança do cors
+app.use(helmet(helmetconfig)); //variavel com todas as configurações de segurança do helmet
+app.use(cors(corsConfig)); //variavel com todas as configurações de segurança do cors
 
 app.use(express.json());
 
