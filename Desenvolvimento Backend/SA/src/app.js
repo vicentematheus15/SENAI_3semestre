@@ -5,8 +5,14 @@ import cors from 'cors';
 import authRoutes from './routes/auth.routes.js';
 import './models/usuario.model.js';
 import usuarioRoutes from './routes/usuario.routes.js';
+import helmetconfig from './config/helmet.js';
+
+
 
 const app = express();
+
+//variavel com todas as configurações de segurança do helmet
+app.use(helmetconfig);
 
 // Permite qualquer origem em desenvolvimento
 // Em produção, substitua '*' pela URL do front-end
