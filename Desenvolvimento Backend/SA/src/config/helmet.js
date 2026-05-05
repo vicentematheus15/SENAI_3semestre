@@ -1,7 +1,7 @@
 import helmet from 'helmet';
 
 
-const helmetconfig = helmet({
+export const helmetConfig = helmet({
 
 // impede incorporação em iframes de outros domínios
     frameguard: { action: 'deny' },
@@ -25,5 +25,3 @@ const helmetconfig = helmet({
 // pois não servimos HTML. Para apps full-stack, configure.
     contentSecurityPolicy: false,
 });
-
-export default helmetconfig;
