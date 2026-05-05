@@ -1,9 +1,7 @@
 import { Router } from "express";
 import * as controller from '../controllers/usuario.controller.js';
 import {autenticar} from '../middlewares/auth.middleware.js';
-import { limitadorGetPerfil } from '../config/rateLimit.js';
-import { limitadorPutPerfil } from '../config/rateLimit.js';
-import { limitadorDeleteConta } from '../config/rateLimit.js'
+import { limitadorGetPerfil, limitadorPutPerfil, limitadorDeleteConta } from '../config/rateLimit.js';
 
 const usuarioRoutes = Router();
 
