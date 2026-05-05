@@ -15,7 +15,7 @@ const app = express();
 
 app.use(cors(corsConfig)); //variavel com todas as configurações de segurança do cors
 app.use(helmetConfig); //variavel com todas as configurações de segurança do helmet
-app.use(limitadorGlobal);
+app.use(limitadorGlobal); //limitador global de requisições
 
 app.use(express.json());
 
