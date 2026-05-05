@@ -14,8 +14,8 @@ import './models/usuario.model.js';
 const app = express();
 
 
-app.use(helmet(helmetconfig)); //variavel com todas as configurações de segurança do helmet
 app.use(cors(corsConfig)); //variavel com todas as configurações de segurança do cors
+app.use(helmet(helmetconfig)); //variavel com todas as configurações de segurança do helmet
 
 app.use(express.json());
 
