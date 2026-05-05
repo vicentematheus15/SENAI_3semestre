@@ -1,11 +1,15 @@
 import { Router } from "express";
 import * as controller from '../controllers/usuario.controller.js';
-import {autenticar} from '../middlewares/auth.middleware.js'
+import {autenticar} from '../middlewares/auth.middleware.js';
+import { limitadorGetPerfil } from '../config/rateLimit.js';
+import { limitadorPutPerfil } from '../config/rateLimit.js';
+import { limitadorDeleteConta } from '../config/rateLimit.js'
 
 const usuarioRoutes = Router();
 
-usuarioRoutes.get('/perfil', autenticar, controller.perfil);
-usuarioRoutes.put('/perfil', autenticar, controller.atualizarPerfil);
-usuarioRoutes.delete('/conta', autenticar, controller.desativarConta);
+//rotas privadas
+usuarioRoutes.get('/perfil', limitadorGetPerfil, autenticar, controller.perfil);
+usuarioRoutes.put('/perfil', limitadorPutPerfil, autenticar, controller.atualizarPerfil);
+usuarioRoutes.delete('/conta', limitadorDeleteConta, autenticar, controller.desativarConta);
 
 export default usuarioRoutes;
