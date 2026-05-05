@@ -25,3 +25,24 @@ import { OrderService } from '../src/orderService.js'
 import { logger } from '../src/logger.js'
 
 // escreva seus testes aqui
+
+describe('orderService()', () => {
+    let service
+    let mockGateway
+    let mockLogger
+
+    beforeEach(() => {
+        mockGateway = {
+            charge: vi.fn()
+        };
+        mockLogger = {
+            charge: vi.fn()
+        }
+        service = new OrderService(order);
+    })
+
+
+    test('Processa pedido válido com sucesso', () => {
+
+    })
+})
