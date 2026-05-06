@@ -26,23 +26,67 @@ import { logger } from '../src/logger.js'
 
 // escreva seus testes aqui
 
-describe('orderService()', () => {
+describe('OrderService', () => {
     let service
     let mockGateway
     let mockLogger
 
+    // roda antes de cada teste
     beforeEach(() => {
         mockGateway = {
-            charge: vi.fn()
-        };
-        mockLogger = {
-            charge: vi.fn()
+        charge: vi.fn()
         }
-        service = new OrderService(order);
+
+        mockLogger = {
+        log: vi.fn()
+        }
+
+        service = new OrderService(mockGateway, mockLogger)
     })
 
 
-    test('Processa pedido válido com sucesso', () => {
+// 1-Processa pedido válido com sucesso
+    it('Processa pedido válido com sucesso', async () => {
+        mockGateway.charge.mockResolvedValue({ success: true })
 
-    })
+        const order = {
+        items: ['item1'],
+        total: 100
+        }
+
+        const receipt = await service.processOrder(order)
+
+        expect(receipt).toBeDefined()
+    });
+
+// 2-Retorna recibo com id e timestamp
+    it('Retorna recibo com `id` e `timestamp`', async () => {
+        mockGateway.charge.mockResolvedValue({ success: true })
+
+        const order = {
+        items: ['item1'],
+        total: 50
+        }
+
+        const receipt = await service.processOrder(order)
+
+        expect(receipt).toHaveProperty('id')
+        expect(receipt).toHaveProperty('timestamp')
+    });
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 })
