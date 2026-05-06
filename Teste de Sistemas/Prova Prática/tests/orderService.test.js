@@ -88,7 +88,19 @@ describe('OrderService', () => {
         expect(mockGateway.charge).toHaveBeenCalledWith(30)
     })
 
+// 4-Spy no logger
+    it('Chama `logger.log` ao processar', async () => {
+        mockGateway.charge.mockResolvedValue({ success: true })
 
+        const spy = vi.spyOn(mockLogger, 'log');
+
+        await service.processOrder({
+            items: ['item1'],
+            total: 30
+        });
+
+        expect(spy).toHaveBeenCalled()
+    });
 
 
 
