@@ -149,5 +149,15 @@ describe('OrderService', () => {
         expect(mockLogger.log).not.toHaveBeenCalled()
     })
 
+// 10-Chamada única do charge
+    it('Chama `charge` exatamente uma vez por pedido', async () => {
+        mockGateway.charge.mockResolvedValue({sucess: true});
 
+        await service.processOrder({
+            items: ['item1'],
+            total: 30
+        })
+
+        expect(mockGateway.charge).toHaveBeenCalledTimes(1)
+    })
 })
