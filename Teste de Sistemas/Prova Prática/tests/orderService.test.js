@@ -143,7 +143,11 @@ describe('OrderService', () => {
         }
     })
 
-
+// 9-Mock resetado entre testes
+    it('Estado do mock é resetado entre testes', async () => {
+        expect(mockGateway.charge).not.toHaveBeenCalled()
+        expect(mockLogger.log).not.toHaveBeenCalled()
+    })
 
 
 })
