@@ -102,7 +102,12 @@ describe('OrderService', () => {
         expect(spy).toHaveBeenCalled()
     });
 
-
+// 5-Pedido sem item
+    it('Lança erro para pedido sem itens', () => {
+        expect(() => 
+            service.processOrder({items: [], total: 100})
+        ).rejects.toThrow('Pedido deve conter ao menos um item')
+    })
 
 
 
