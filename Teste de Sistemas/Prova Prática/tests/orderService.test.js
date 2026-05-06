@@ -74,7 +74,19 @@ describe('OrderService', () => {
         expect(receipt).toHaveProperty('timestamp')
     });
 
+// 3-Chama gateway com valor correto
+    it('Chama `paymentGateway.charge` com o valor correto', async () => {
+        mockGateway.charge.mockResolvedValue({ success: true })
 
+    
+
+        await service.processOrder({
+            items: ['item1'],
+            total: 30
+        })
+
+        expect(mockGateway.charge).toHaveBeenCalledWith(30)
+    })
 
 
 
