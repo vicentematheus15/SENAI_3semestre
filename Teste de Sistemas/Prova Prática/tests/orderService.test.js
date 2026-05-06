@@ -128,7 +128,20 @@ describe('OrderService', () => {
         ).rejects.toThrow('Pagamento falhou')
     })
 
+// 8-Não chama logger se pedido inválido
+    it('não deve chamar logger.log se pedido for inválido', async () => {
 
+        const spy = vi.spyOn(mockLogger, 'log')
+
+        try {
+            await service.processOrder({
+                items: [],
+                total: 30
+            });
+        } catch (error) {
+            expect(spy).not.toHaveBeenCalled()
+        }
+    })
 
 
 
