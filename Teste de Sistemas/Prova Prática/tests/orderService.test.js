@@ -116,7 +116,17 @@ describe('OrderService', () => {
     ).rejects.toThrow('Valor total do pedido deve ser maior que zero')
     })
 
+// 7-Falha de pagamento
+    it('Rejeita quando o pagamento falha', async () => {
+        mockGateway.charge.mockRejectedValue(new Error(' Pagamento falhou'))
 
+        await expect(
+            service.processOrder({
+                items: ['item1'],
+                total: 30
+            })
+        ).rejects.toThrow('Pagamento falhou')
+    })
 
 
 
