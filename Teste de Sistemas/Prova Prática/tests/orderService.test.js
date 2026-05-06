@@ -109,7 +109,12 @@ describe('OrderService', () => {
         ).rejects.toThrow('Pedido deve conter ao menos um item')
     })
 
-
+// 6-Total inválido
+    it('Lança erro para valor total zero ou negativo', () => {
+        expect(() => 
+            service.processOrder({items: ['item1'], total: 0})
+    ).rejects.toThrow('Valor total do pedido deve ser maior que zero')
+    })
 
 
 
