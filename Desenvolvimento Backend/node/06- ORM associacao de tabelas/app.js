@@ -2,6 +2,7 @@ import 'dotenv/config';
 import express from 'express';
 import sequelize from './src/database/database.js';
 import alunoRoutes from './src/routes/aluno.routes.js';
+import turmaRoutes from './src/routes/turma.routes.js';
 
 //importa o model para garantir registro no sequelize
 import './src/models/aluno.model.js'
@@ -11,6 +12,7 @@ const app = express();
 app.use(express.json());
 
 app.use('/aluno', alunoRoutes);
+app.use('/turma', turmaRoutes);
 
 sequelize.sync({alter: true}).then(() => {
     app.listen(process.env.API_PORT, () => 
