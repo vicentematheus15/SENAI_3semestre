@@ -1,3 +1,3 @@
 npm init -y
-npm install express pg dotenv bcryptjs jsonwebtoken
-New-Item -Path "src\controllers", "src\models", "src\database", "src\routes", src\middlewares -ItemType Directory
+npm install express pg dotenv bcryptjs jsonwebtoken sequelize pg-hstore op cors helmet
+New-Item -Path "src\controllers", "src\models", "src\database", "src\config, "src\routes", src\middlewares -ItemType Directory
