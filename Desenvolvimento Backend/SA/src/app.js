@@ -2,14 +2,14 @@ import 'dotenv/config';
 import sequelize from './database/database.js';
 import express from 'express';
 import authRoutes from './routes/auth.routes.js';
-import usuarioRoutes from './routes/usuario.routes.js';
+import usuarioRoutes from './routes/user.routes.js';
 import cors from 'cors';
 import { limitadorGlobal } from './config/rateLimit.js';
 import { helmetConfig } from './config/helmet.js';
 import { corsConfig } from './config/cors.js';
 
 //importa o model para garantir registro no sequelize
-import './models/usuario.model.js';
+import './models/user.model.js';
 
 const app = express();
 
