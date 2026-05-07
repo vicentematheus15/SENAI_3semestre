@@ -8,4 +8,4 @@ const Turma = sequelize.define('Turma', {
     curso: { type: DataTypes.STRING }
 })
 
-export default Turma
+export default Turma;

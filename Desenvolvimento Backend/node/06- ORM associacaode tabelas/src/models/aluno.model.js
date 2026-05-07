@@ -1,6 +1,6 @@
 import sequelize from '../database/database';
 import { DataTypes } from 'sequelize';
-import Turma from './model.turma';
+import Turma from './turma.model';
 
 const Aluno = sequelize.define('Aluno', {
     id: { type: DataTypes.INTEGER, primaryKey: true, autoIncrement: true},
