@@ -1,6 +1,5 @@
 import sequelize from '../database/database.js';
 import { DataTypes } from 'sequelize';
-import Turma from './turma.model.js';
 
 const Aluno = sequelize.define('Aluno', {
     id: { type: DataTypes.INTEGER, primaryKey: true, autoIncrement: true},
@@ -14,7 +13,5 @@ const Aluno = sequelize.define('Aluno', {
         timestamps: true,
 });
 
-Turma.hasMany(Aluno, {foreignKey: 'turmaId'});
-Aluno.belongsTo(Turma,{ foreignKey: 'turmaId'});
 
-export { Turma, Aluno};
+export default Aluno;

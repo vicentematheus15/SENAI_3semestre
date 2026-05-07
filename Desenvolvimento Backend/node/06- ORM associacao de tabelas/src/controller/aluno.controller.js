@@ -1,4 +1,4 @@
-import { Aluno, Turma } from "../models/aluno.model.js";
+import { Aluno, Turma } from "../models/index.js";
 import { Op } from "sequelize";
 
 export async function listarMediaBaixa(req, res){
