@@ -7,7 +7,7 @@ const Turma = sequelize.define('Turma', {
     semestre: { type: DataTypes.INTEGER },
     curso: { type: DataTypes.STRING }
 }, {
-        tableName: 'turma',
+        tableName: 'turmas',
         timestamps: true,
 })
 

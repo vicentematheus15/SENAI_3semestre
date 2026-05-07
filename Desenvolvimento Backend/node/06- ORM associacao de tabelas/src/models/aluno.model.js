@@ -10,7 +10,7 @@ const Aluno = sequelize.define('Aluno', {
     mediaGeral: {type: DataTypes.FLOAT}
     //FK implícita: Sequelize cria turmaId automaticamente
 }, {
-        tableName: 'aluno',
+        tableName: 'alunos',
         timestamps: true,
 });
 
