@@ -2,6 +2,9 @@ import 'dotenv/config';
 import express from 'express';
 import sequelize from './src/database/database.js';
 
+//importa o model para garantir registro no sequelize
+import './src/models/aluno.model.js'
+
 const app = express();
 
 app.use(express.json());

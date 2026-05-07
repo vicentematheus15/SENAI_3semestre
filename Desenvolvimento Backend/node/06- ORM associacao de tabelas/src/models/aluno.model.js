@@ -1,6 +1,6 @@
-import sequelize from '../database/database';
+import sequelize from '../database/database.js';
 import { DataTypes } from 'sequelize';
-import Turma from './turma.model';
+import Turma from './turma.model.js';
 
 const Aluno = sequelize.define('Aluno', {
     id: { type: DataTypes.INTEGER, primaryKey: true, autoIncrement: true},
@@ -9,6 +9,9 @@ const Aluno = sequelize.define('Aluno', {
     senha: {type: DataTypes.STRING},
     mediaGeral: {type: DataTypes.FLOAT}
     //FK implícita: Sequelize cria turmaId automaticamente
+}, {
+        tableName: 'aluno',
+        timestamps: true,
 });
 
 Turma.hasMany(Aluno, {foreignKey: 'turmaId'});

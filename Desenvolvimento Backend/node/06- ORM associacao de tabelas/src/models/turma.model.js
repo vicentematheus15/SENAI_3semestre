@@ -6,6 +6,9 @@ const Turma = sequelize.define('Turma', {
     nome: { type: DataTypes.STRING, allowNull: false },
     semestre: { type: DataTypes.INTEGER },
     curso: { type: DataTypes.STRING }
+}, {
+        tableName: 'turma',
+        timestamps: true,
 })
 
 export default Turma;
