@@ -20,7 +20,7 @@ const Turma = sequelize.define('turma',
             type: DataTypes.STRING,
         }
     }, {
-        tableName: 'turma',
+        tableName: 'turmas',
         timestamps: true,
 });
 
