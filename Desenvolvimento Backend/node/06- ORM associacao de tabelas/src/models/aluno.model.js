@@ -6,12 +6,12 @@ const Aluno = sequelize.define('Aluno', {
     id: { type: DataTypes.INTEGER, primaryKey: true, autoIncrement: true},
     nome: {type: DataTypes.STRING, allowNull: false},
     email: {type: DataTypes.STRING, unique: true},
-    senha: {},
-    mediaGeral: {}
+    senha: {type: DataTypes.STRING},
+    mediaGeral: {type: DataTypes.FLOAT}
     //FK implícita: Sequelize cria turmaId automaticamente
 });
 
 Turma.hasMany(Aluno, {foreignKey: 'turmaId'});
 Aluno.belongsTo(Turma,{ foreignKey: 'turmaId'});
 
-export default { Turma, Aluno};
+export { Turma, Aluno};
