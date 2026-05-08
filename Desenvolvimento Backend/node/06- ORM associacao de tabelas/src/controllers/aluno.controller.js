@@ -50,7 +50,8 @@ export async function filtrarAlunos(req, res){
             include: {
                 model: Turma,
                 attributes: ['nome']
-            }
+            },
+            order: [['id', 'ASC']]
         });
 
         console.log('Órfãos:', orfaos.length, '| Outras turmas:', outrasTurmas.length);
