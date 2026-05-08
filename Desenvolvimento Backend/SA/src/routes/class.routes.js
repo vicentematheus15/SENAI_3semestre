@@ -3,6 +3,6 @@ import * as controller from '../controllers/user.controller.js';
 
 const classRoutes = Router();
 
-classRoutes.get('/perfil', limitadorGetPerfil, autenticar, controller.perfil);
+classRoutes.get('/perfil', controller.perfil);
 
 export default classRoutes;
