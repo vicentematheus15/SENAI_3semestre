@@ -31,4 +31,8 @@ const Aluno = sequelize.define('Aluno',
         timestamps: true,
 });
 
+//associações
+Turma.hasMany(Aluno, { foreignKey : 'turmaId' }); //turma possui muitos alunos
+Aluno.belongsTo(Turma, { foreignKey: 'turmaId' }); //aluno pertence a uma turma
+
 export { Aluno, Turma };
