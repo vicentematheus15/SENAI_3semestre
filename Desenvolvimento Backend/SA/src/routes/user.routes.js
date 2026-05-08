@@ -1,5 +1,5 @@
 import { Router } from "express";
-import * as controller from '../controllers/usuario.controller.js';
+import * as controller from '../controllers/user.controller.js';
 import {autenticar} from '../middlewares/auth.middleware.js';
 import { limitadorGetPerfil, limitadorPutPerfil, limitadorDeleteConta } from '../config/rateLimit.js';
 

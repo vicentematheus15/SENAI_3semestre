@@ -2,14 +2,18 @@ import 'dotenv/config';
 import sequelize from './database/database.js';
 import express from 'express';
 import authRoutes from './routes/auth.routes.js';
-import usuarioRoutes from './routes/usuario.routes.js';
+import usuarioRoutes from './routes/user.routes.js';
+import classRoutes from './routes/class.routes.js';
+import studentRoutes from './routes/student.routes.js';
 import cors from 'cors';
 import { limitadorGlobal } from './config/rateLimit.js';
 import { helmetConfig } from './config/helmet.js';
 import { corsConfig } from './config/cors.js';
 
 //importa o model para garantir registro no sequelize
-import './models/usuario.model.js';
+import './models/user.model.js';
+import './models/class.model.js';
+import './models/student.model.js'
 
 const app = express();
 
@@ -21,6 +25,8 @@ app.use(express.json());
 
 app.use('/auth', authRoutes);
 app.use('/usuario', usuarioRoutes);
+app.use('/aluno', studentRoutes)
+// app.use('/turma', classRoutes);
 
 sequelize.sync({alter: true}).then(() => {
     app.listen(process.env.API_PORT, () => 

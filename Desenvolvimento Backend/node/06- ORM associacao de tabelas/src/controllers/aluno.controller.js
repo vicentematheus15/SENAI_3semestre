@@ -7,7 +7,7 @@ export async function listarMediaBaixa(req, res){
             //atributos que é para retornar da query (dos alunos)
             attributes: ['nome', 'email', 'mediaGeral'],
             where:{ 
-                mediaGeral: { [Op.lt]: 6 } 
+                mediaGeral: { [Op.lt]: 7.0 } 
             },
 
             //inclui os dados da turma relacionada a cada aluno retornado
