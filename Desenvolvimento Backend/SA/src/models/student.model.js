@@ -1,7 +1,8 @@
+import Turma from "./class.model.js";
 import sequelize from "../database/database.js";
 import { DataTypes } from "sequelize";
 
-export const Aluno = sequelize.define('Aluno',
+const Aluno = sequelize.define('Aluno',
     {
         id: {
             type: DataTypes.INTEGER,
@@ -22,11 +23,12 @@ export const Aluno = sequelize.define('Aluno',
             type: DataTypes.STRING,
             allowNull: false
         },
-        ativo: {
-            type: DataTypes.BOOLEAN,
-            defaultValue: true
+        mediaGeral: {
+            type: DataTypes.FLOAT,
         }
     }, {
         tableName: 'alunos',
         timestamps: true,
 });
+
+export { Aluno, Turma };
