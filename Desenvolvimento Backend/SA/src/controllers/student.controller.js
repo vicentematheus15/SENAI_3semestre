@@ -3,7 +3,7 @@ import Op from 'sequelize'
 
 export async function getAllStudents(req, res){
     try {
-        const alunosEmRisco = await Aluno.findByPk({
+        const alunosEmRisco = await Aluno.findAll({
             attributes: ['nome', 'email', 'mediaGeral'],
             where: {
                 mediaGeral: { [Op.lt]: 7.0 }

@@ -12,9 +12,8 @@ const Turma = sequelize.define('turma',
             type: DataTypes.STRING,
             allowNull: false
         },
-        email: {
-            type: DataTypes.STRING,
-            allowNull: false,
+        semestre: {
+            type: DataTypes.INTEGER,
         },
         curso: {
             type: DataTypes.STRING,
