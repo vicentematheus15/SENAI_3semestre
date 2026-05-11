@@ -10,7 +10,7 @@ export async function filtrarTurmas(req, res){
                 [Op.and]: [
                     {
                         [Op.or]: [
-                            { nome: { [Op.iLike]: '%EDM%' } }, 
+                            { nome: { [Op.iLike]: '%DSM%' } }, 
                             { nome: { [Op.iLike]: '%EDM%' } }
                         ]
                     }, {
