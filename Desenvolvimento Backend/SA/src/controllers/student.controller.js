@@ -26,3 +26,28 @@ export async function getAllStudents(req, res){
         return res.status(500).json({ erro: 'Erro ao buscar aluno', error });
     }
 }
+
+export async function filterStudents(req, res){
+    try {
+        const orfaos = await Aluno.findAll({
+            where: {
+                turmaId: { [Op.is]: null }
+            }
+        })
+
+        const outrasTurmas = await Aluno.findAll({
+            where: {
+                [Op.and]: [
+                    { turmaId: { [Op.notIn]: [1, 3, 5] } },
+                    { turmaId: { [Op.ne]: null } }
+                ]
+            }
+        })
+
+        console.log(`Alunos órfãos: ${orfaos}, Alunos em outras turmas: ${outrasTurmas}`)
+        return res.status(200).json({orfaos: orfaos, outrasTurmas: outrasTurmas})
+    } catch (error) {
+        console.error(error);
+        return res.status(500).json({ erro: 'Erro ao buscar aluno', error });
+    }
+}
