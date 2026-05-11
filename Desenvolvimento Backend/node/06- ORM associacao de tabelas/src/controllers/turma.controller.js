@@ -5,7 +5,6 @@ import { Op, Sequelize } from "sequelize";
 export async function filtrarTurmas(req, res){
     try {
         const turmasFiltradas = await Turma.findAll({
-            attributes: ['nome', 'semestre'], //essa linha não ta fazendo efeito
             where: {
                 [Op.and]: [
                     {
