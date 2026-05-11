@@ -26,7 +26,7 @@ app.use(express.json());
 app.use('/auth', authRoutes);
 app.use('/usuario', usuarioRoutes);
 app.use('/aluno', studentRoutes)
-// app.use('/turma', classRoutes);
+app.use('/turma', classRoutes);
 
 sequelize.sync({alter: true}).then(() => {
     app.listen(process.env.API_PORT, () => 
