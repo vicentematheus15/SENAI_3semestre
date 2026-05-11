@@ -103,17 +103,17 @@ describe('OrderService', () => {
     });
 
 // 5-Pedido sem item
-    it('Lança erro para pedido sem itens', () => {
-        expect(() => 
-            service.processOrder({items: [], total: 100})
+    it('Lança erro para pedido sem itens',  async () => {
+       await expect(
+            service.processOrder({ items: [], total: 100 })
         ).rejects.toThrow('Pedido deve conter ao menos um item')
     })
 
 // 6-Total inválido
-    it('Lança erro para valor total zero ou negativo', () => {
-        expect(() => 
-            service.processOrder({items: ['item1'], total: 0})
-    ).rejects.toThrow('Valor total do pedido deve ser maior que zero')
+    it('Lança erro para valor total zero ou negativo', async () => {
+        await expect(
+            service.processOrder({ items: ['item1'], total: 0 })
+        ).rejects.toThrow('Valor total do pedido deve ser maior que zero')
     })
 
 // 7-Falha de pagamento
@@ -151,7 +151,7 @@ describe('OrderService', () => {
 
 // 10-Chamada única do charge
     it('Chama `charge` exatamente uma vez por pedido', async () => {
-        mockGateway.charge.mockResolvedValue({sucess: true});
+        mockGateway.charge.mockResolvedValue({ success: true });
 
         await service.processOrder({
             items: ['item1'],
