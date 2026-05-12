@@ -88,7 +88,15 @@ const convidadoAlvo = convidados.find((convidado) => {
 console.log('\n ======== Convidado alvo (Maria): ======== \n', convidadoAlvo);
 
 
+// Criar um reduce para descobrir a maior idade da lista.
+const maiorIdade = convidados.reduce((maiorIdade, convidado) => {
+    if(convidado.idade > maiorIdade){
+        maiorIdade = convidado.idade
+    }
+    return maiorIdade
+}, 0)
 
+console.log('\n ======== Maior idade: ======== \n', maiorIdade);
 
 
 // Adicionar o campo confirmado: true/false e filtrar apenas convidados confirmados.
