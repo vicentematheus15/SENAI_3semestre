@@ -17,11 +17,11 @@ h1 {
 }
 
 .card {
-  background-color: #ffffff;
+  background-color: #d3e3f0;
   padding: 20px;
   margin-bottom: 20px;
-  border-radius: 10px;
-  border: 1px solid #ddd;
+  border-radius: 20px;
+  border: 1px solid #636161;
 }
 
 h2 {
