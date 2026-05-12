@@ -1,5 +1,5 @@
 import { Aluno, Turma } from "../models/student.model.js";
-import Op from 'sequelize'
+import { Op } from 'sequelize'
 
 export async function getAllStudents(req, res){
     try {
@@ -12,7 +12,7 @@ export async function getAllStudents(req, res){
                 model: Turma,
                 attributes: ['nome', 'semestre'],
                 where: {
-                    semestre: { [Op.in]: [1,2]}
+                    semestre: { [Op.in]: [1, 3]}
                 }
             },
             order: [['mediaGeral', 'ASC']]
