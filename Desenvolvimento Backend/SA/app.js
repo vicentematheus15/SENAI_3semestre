@@ -1,19 +1,19 @@
 import 'dotenv/config';
-import sequelize from './database/database.js';
+import sequelize from './src/database/database.js';
 import express from 'express';
-import authRoutes from './routes/auth.routes.js';
-import usuarioRoutes from './routes/user.routes.js';
-import classRoutes from './routes/class.routes.js';
-import studentRoutes from './routes/student.routes.js';
+import authRoutes from './src/routes/auth.routes.js';
+import usuarioRoutes from './src/routes/user.routes.js';
+import classRoutes from './src/routes/class.routes.js';
+import studentRoutes from './src/routes/student.routes.js';
 import cors from 'cors';
-import { limitadorGlobal } from './config/rateLimit.js';
-import { helmetConfig } from './config/helmet.js';
-import { corsConfig } from './config/cors.js';
+import { limitadorGlobal } from './src/config/rateLimit.js';
+import { helmetConfig } from './src/config/helmet.js';
+import { corsConfig } from './src/config/cors.js';
 
 //importa o model para garantir registro no sequelize
-import './models/user.model.js';
-import './models/class.model.js';
-import './models/student.model.js'
+import './src/models/user.model.js';
+import './src/models/class.model.js';
+import './src/models/student.model.js'
 
 const app = express();
 
