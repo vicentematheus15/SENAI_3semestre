@@ -72,6 +72,15 @@ console.log('\n==========  Nova lista de convidados ==========\n'
 , convidados);
 
 
+// Criar um filter para listar apenas menores de idade.
+const menoresIdade = convidados.filter((convidado) => {
+    return convidado.idade < 18
+})
+
+console.log('\n ======== Menores de idade: ======== \n', menoresIdade);
+
+
+
 
 
 // Adicionar o campo confirmado: true/false e filtrar apenas convidados confirmados.
