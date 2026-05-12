@@ -93,6 +93,7 @@ const maiorIdade = convidados.reduce((maiorIdade, convidado) => {
     if(convidado.idade > maiorIdade){
         maiorIdade = convidado.idade
     }
+
     return maiorIdade
 }, 0)
 
@@ -100,3 +101,19 @@ console.log('\n ======== Maior idade: ======== \n', maiorIdade);
 
 
 // Adicionar o campo confirmado: true/false e filtrar apenas convidados confirmados.
+
+const novaListaConvidados = [
+    { id: 1, nome: "Lucas", sobrenome: "Silva", idade: 20, confirmado: true },
+    { id: 2, nome: "Maria", sobrenome: "Oliveira", idade: 17, confirmado: false },
+    { id: 3, nome: "João", sobrenome: "Santos", idade: 25, confirmado: false },
+    { id: 4, nome: "Ana", sobrenome: "Souza", idade: 16, confirmado: true },
+    { id: 5, nome: "José", sobrenome: "Oliveira", idade: 29, confirmado: false },
+    { id: 6, nome: "Camila", sobrenome: "Freitas", idade: 16, confirmado: true },
+    { id: 7, nome: "Diana", sobrenome: "Moreira", idade: 21, confirmado: true}
+];
+
+const confirmados = novaListaConvidados.filter((convidado) => {
+    return convidado.confirmado === true
+})
+
+console.log('\n ======== Convidados confirmados: ======== \n', confirmados);
