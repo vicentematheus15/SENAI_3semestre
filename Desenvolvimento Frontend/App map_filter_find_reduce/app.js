@@ -80,6 +80,14 @@ const menoresIdade = convidados.filter((convidado) => {
 console.log('\n ======== Menores de idade: ======== \n', menoresIdade);
 
 
+// Criar um find para localizar o convidado chamado Maria.
+const convidadoAlvo = convidados.find((convidado) => {
+    return convidado.nome === 'Maria'
+})
+
+console.log('\n ======== Convidado alvo (Maria): ======== \n', convidadoAlvo);
+
+
 
 
 
