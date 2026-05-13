@@ -202,7 +202,9 @@ function App() {
         <p> Convidados confirmados:</p>
         <ul>
           {confirmados.map((convidado) => (
-            <li key={convidado.id}>{convidado.nome} {convidado.sobrenome} </li>
+            <li key={convidado.id}>
+              {convidado.nome} {convidado.sobrenome} 
+            </li>
           ))}
         </ul>
       </section>
