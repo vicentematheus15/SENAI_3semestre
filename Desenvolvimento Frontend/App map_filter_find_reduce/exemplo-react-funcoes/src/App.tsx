@@ -193,7 +193,7 @@ function App() {
       </section>
 
       <section className="card">
-        <h2>3. Reduce - Maior idade</h2>
+        <h2>3. Reduce - Maior idade entre os convidados</h2>
         <p>Maior idade: {maiorIdade}</p>
       </section>
 
@@ -206,7 +206,6 @@ function App() {
           ))}
         </ul>
       </section>
-
     </div>
   );
 }
