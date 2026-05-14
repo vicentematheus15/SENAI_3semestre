@@ -30,7 +30,12 @@ function App() {
       return total + produto.preco
   }, 0);
 
-  
+  const somaAcimaDe500 = produtos.filter((produto) => {
+    return produto.preco > 500
+  }).reduce((total, produto) => {
+    return total + produto.preco
+  }, 0)
+
   return (
     <>
       <section id="center">
