@@ -22,7 +22,10 @@ function App() {
     return produto.categoria === 'Periféricos'
   })
 
- 
+  const buscaPorId = produtos.find((produto) => {
+    return produto.id === 4
+  })
+
   return (
     <>
       <section id="center">
