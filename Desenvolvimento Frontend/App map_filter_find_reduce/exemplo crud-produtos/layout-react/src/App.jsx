@@ -20,12 +20,17 @@ function App() {
 
   const produtosFiltrados = produtos.filter((produto) => {
     return produto.categoria === 'Periféricos'
-  })
+  });
 
   const buscaPorId = produtos.find((produto) => {
     return produto.id === 4
-  })
+  });
 
+  const somaTotal = produtos.reduce((total, produto) => {
+      return total + produto.preco
+  }, 0);
+
+  
   return (
     <>
       <section id="center">
