@@ -26,7 +26,10 @@ export class AuthService {
         
         const user = this.users.find(user => user.email === email && user.senha === senha)
         
-       
+        if(!user){
+            throw new Error("Credenciais inválidas")
+        }
+        
         
         return {success: true, user: {email}}
     }

@@ -66,5 +66,16 @@ describe('Autenticação de Usuário', () => {
         expect(result.user.email).toBe(email)
     });
 
-  
+    it('Login com senha incorreta', () => {
+        //Given
+        const email = "maria@email.com"
+        const senha = "SenhaErrada"
+
+        authService.register(email, 'Senha123')
+
+        //When + Then
+        expect(() => authService.login(email, senha)).toThrow('Credenciais inválidas') 
+    });
+
+    
 })
