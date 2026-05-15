@@ -77,5 +77,12 @@ describe('Autenticação de Usuário', () => {
         expect(() => authService.login(email, senha)).toThrow('Credenciais inválidas') 
     });
 
-    
+    it('Login com email não cadastrado', () => {
+        //Given
+        
+        //When + Then
+        expect(() => authService.login('naoexiste@email.com', 'Senha123')).toThrow('Credenciais inválidas')
+    })
+
+
 })
