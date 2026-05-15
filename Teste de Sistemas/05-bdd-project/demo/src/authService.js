@@ -18,7 +18,7 @@ export class AuthService {
             throw new Error("Email já cadastrado");
         }
 
-        this.users.push(email, senha)
+        this.users.push({email, senha})
         return {success: true, user: {email}}
     }
 }
