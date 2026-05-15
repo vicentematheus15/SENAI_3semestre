@@ -21,4 +21,13 @@ export class AuthService {
         this.users.push({email, senha})
         return {success: true, user: {email}}
     }
+
+    login(email, senha){
+        
+        const user = this.users.find(user => user.email === email && user.senha === senha)
+        
+       
+        
+        return {success: true, user: {email}}
+    }
 }

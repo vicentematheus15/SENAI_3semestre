@@ -49,6 +49,22 @@ describe('Autenticação de Usuário', () => {
 
         //When + Then
         expect(() => authService.register('maria@email.com', 'Senha123')).toThrow('Email já cadastrado')
-    })
+    });
 
+    it('Login com credenciais corretas', () => {
+        //Given
+        const email = "maria@email.com"
+        const senha = "Senha123"
+
+        authService.register(email, senha)
+
+        //When
+        const result = authService.login(email, senha)
+
+        //Then
+        expect(result.success).toBe(true)
+        expect(result.user.email).toBe(email)
+    });
+
+  
 })
