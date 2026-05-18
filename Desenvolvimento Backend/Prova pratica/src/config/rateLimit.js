@@ -26,8 +26,8 @@ export const limitadorCadastro = rateLimit({
 
 //Confgurando limite na rota POST '/auth/login'
 export const limitadorLogin = rateLimit({
-    windowMs: 15*60*1000, //janela de tempo para fazer algo
-    max: 100, //numero maximo de requisições por IP
+    windowMs: 1*60*1000, //janela de tempo para fazer algo
+    max: 3, //numero maximo de requisições por IP
     statusCode: 429,
     message: {
         erro: 'Muitas requisições por minuto'
