@@ -1,9 +1,12 @@
 import { Router } from "express";
-import * as controller from '../controllers/auth.controller.js'
+import * as controller from '../controllers/auth.controller.js';
+import {limitadorCadastro, limitadorLogin} from '../config/rateLimit.js';
+
 
 const authRoutes = Router();
 
-authRoutes.post('/cadastro', controller.cadastrar);
-authRoutes.post('/login', controller.login);
+//rotas publicas
+authRoutes.post('/cadastro', limitadorCadastro, controller.cadastrar);
+authRoutes.post('/login', limitadorLogin, controller.login);
 
 export default authRoutes;

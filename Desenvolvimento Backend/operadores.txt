@@ -1,0 +1,27 @@
+Operador	    Significado	                            Exemplo prático
+
+[Op.and]	    E lógico	                { [Op.and]: [{ ativo: true }, { tipo: 'aluno' }] }
+
+[Op.or]	        OU lógico	                { [Op.or]: [{ semestre: 1 }, { semestre: 2 }] }
+
+[Op.gt]	        Maior que	                { mediaGeral: { [Op.gt]: 8.0 } }
+
+[Op.lt]	        Menor que	                { cargaHoraria: { [Op.lt]: 30 } }
+
+[Op.gte]	    Maior ou igual	            { semestre: { [Op.gte]: 4 } }
+
+[Op.lte]	    Menor ou igual	            { tentativas: { [Op.lte]: 3 } }
+
+[Op.between]	Entre intervalo	            { mediaGeral: { [Op.between]: [5.0, 7.0] } }
+
+[Op.like]	    Parecido (case sensitive)	{ nome: { [Op.like]: '%Silva%' } }
+
+[Op.iLike]	    Parecido (insensitive)	    { curso: { [Op.iLike]: '%informática%' } }
+
+[Op.in]	        Está na lista	            { titulacao: { [Op.in]: ['mestrado', 'doutorado'] } }
+
+[Op.notIn]	    Não está na lista	        { uc: { [Op.notIn]: ['DSM'] } }
+
+[Op.is]	        É (null/not null)	        { turmaId: { [Op.is]: null } }
+
+[Op.ne]	        Diferente de	            { turmaId: { [Op.ne]: null } }
