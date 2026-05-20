@@ -69,12 +69,12 @@ body {
 
 .caixa-imagem {
   width: 350px;
-  height: 250px;
-  background-color: #d1d5db;
-  border-radius: 12px;
+  height: 350px;
+  background-color: #1f2937;
+  border-radius: 360px;
   display: flex;
   justify-content: center;
   align-items: center;
   font-size: 28px;
-  color: #4b5563;
+  color: #f4f4f4;
 }
