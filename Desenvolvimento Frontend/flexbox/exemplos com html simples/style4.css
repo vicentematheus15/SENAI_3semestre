@@ -1,0 +1,142 @@
+* {
+  box-sizing: border-box;
+}
+
+body {
+  margin: 0;
+  font-family: Arial, sans-serif;
+  background-color: #f9fafb;
+}
+
+.menu {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 20px 50px;
+  background-color: #111827;
+  color: white;
+}
+
+.logo {
+  font-size: 26px;
+  font-weight: bold;
+}
+
+.links {
+  display: flex;
+  gap: 25px;
+}
+
+.links a {
+  color: white;
+  text-decoration: none;
+}
+
+.hero {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  padding: 70px 50px;
+  gap: 40px;
+}
+
+.hero-texto,
+.hero-imagem {
+  flex: 1;
+}
+
+.hero-texto h1 {
+  font-size: 44px;
+  color: #111827;
+}
+
+.hero-texto p {
+  font-size: 18px;
+  color: #4b5563;
+  line-height: 1.6;
+}
+
+.hero-texto button {
+  background-color: #2563eb;
+  color: white;
+  border: none;
+  padding: 14px 24px;
+  border-radius: 6px;
+}
+
+.hero-imagem {
+  display: flex;
+  justify-content: center;
+}
+
+.box-imagem {
+  width: 350px;
+  height: 250px;
+  background-color: #d1d5db;
+  border-radius: 12px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  font-size: 28px;
+  color: #374151;
+}
+
+.cards {
+  display: flex;
+  justify-content: center;
+  flex-wrap: wrap;
+  gap: 25px;
+  padding: 50px;
+}
+
+.card {
+  width: 280px;
+  background-color: white;
+  padding: 25px;
+  border-radius: 10px;
+  box-shadow: 0 0 10px rgba(0, 0, 0, 0.08);
+}
+
+.rodape {
+  background-color: #111827;
+  color: white;
+  text-align: center;
+  padding: 20px;
+}
+
+@media (max-width: 768px) {
+  .menu {
+    flex-direction: column;
+    gap: 20px;
+    text-align: center;
+  }
+
+  .links {
+    flex-direction: column;
+    gap: 12px;
+  }
+
+  .hero {
+    flex-direction: column;
+    text-align: center;
+    padding: 40px 20px;
+  }
+
+  .hero-texto h1 {
+    font-size: 32px;
+  }
+
+  .box-imagem {
+    width: 100%;
+    max-width: 320px;
+  }
+
+  .cards {
+    padding: 30px 20px;
+  }
+
+  .card {
+    width: 100%;
+    max-width: 320px;
+  }
+}
