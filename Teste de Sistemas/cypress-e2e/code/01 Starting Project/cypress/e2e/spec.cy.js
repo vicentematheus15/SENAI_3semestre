@@ -76,7 +76,7 @@ describe('end-to-end', () => {
     cy.visit('http://localhost:5173/')
     cy.get('[data-cy="start-add-task-button"]').click()
     cy.get('[type="submit"]').click()
-    cy.get('.error-message').should('contain', 'Please provide values for task title, summary and category!')
+    cy.get('.error-message').contains('Please provide values for task title, summary and category!')
     cy.get('[type="button"]').click()
     cy.get(".task").should("not.exist")
   })
