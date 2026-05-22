@@ -69,7 +69,15 @@ describe('end-to-end', () => {
 
     cy.get('#filter').select("important")
     cy.get('.task').should("have.length", 2)
-    cy.get('.task').should("contain", "🔴")
+
+    cy.get('#filter').select("moderate")
+    cy.get('.task').should("have.length", 1)
+
+    cy.get('#filter').select("all")
+    cy.get('.task').should("have.length", 3)
+
+    cy.get('#filter').select("low")
+    cy.get('.task').should("not.exist")
   })
 
   it('Validação de campos vazios com mensagem de erro ao tentar criar tarefa', () => {
