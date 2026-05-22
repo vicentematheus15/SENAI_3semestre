@@ -72,5 +72,11 @@ describe('end-to-end', () => {
     cy.get('.task').should("contain", "🔴")
   })
 
+  it('Validação de campos vazios com mensagem de erro ao tentar criar tarefa', () => {
+    cy.visit('http://localhost:5173/')
+    cy.get('[data-cy="start-add-task-button"]').click()
+    cy.get('[type="submit"]').click()
+    cy.get('.error-message').should('')
+  })
 
 })
