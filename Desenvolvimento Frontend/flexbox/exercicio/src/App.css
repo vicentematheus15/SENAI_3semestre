@@ -103,3 +103,50 @@ body{
     color: #2563eb;
     font-weight: bold;
 }
+
+/* CARDS */
+.cards{
+    display: flex;
+    justify-content: center;
+    gap: 25px;
+    padding: 0 40px;
+    flex-wrap: wrap;
+}
+
+.card{
+    background-color: white;
+    padding: 25px;
+    width: 300px;
+    border-radius: 12px;
+    box-shadow: 0 4px 10px rgba(0,0,0,0.1);
+    transition: 0.3s;
+}
+
+.card:hover{
+    transform: translateY(-5px);
+}
+
+.card-titulo{
+    margin-bottom: 15px;
+    color: #0f172a;
+}
+
+.card-descricao{
+    margin-bottom: 20px;
+    color: #555;
+}
+
+.card-botao{
+    width: 100%;
+    padding: 10px;
+    border: none;
+    background-color: #0f172a;
+    color: white;
+    border-radius: 8px;
+    cursor: pointer;
+    transition: 0.3s;
+}
+
+.card-botao:hover{
+    background-color: #2563eb;
+}
