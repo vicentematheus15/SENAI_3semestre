@@ -45,3 +45,61 @@ body{
     color: #38bdf8;
 }
 
+/* HERO */
+.hero{
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 50px;
+    gap: 40px;
+}
+
+.hero-conteudo{
+    flex: 1;
+}
+
+.hero-titulo{
+    font-size: 3rem;
+    margin-bottom: 20px;
+    color: #0f172a;
+}
+
+.hero-texto{
+    font-size: 1.1rem;
+    margin-bottom: 20px;
+    color: #555;
+}
+
+.hero-botao{
+    padding: 12px 24px;
+    border: none;
+    background-color: #2563eb;
+    color: white;
+    border-radius: 8px;
+    cursor: pointer;
+    font-size: 1rem;
+    transition: 0.3s;
+}
+
+.hero-botao:hover{
+    background-color: #1d4ed8;
+}
+
+.hero-imagem-container{
+    flex: 1;
+}
+
+.hero-imagem{
+    width: 100%;
+    height: 300px;
+    background-color: #dbeafe;
+    border-radius: 12px;
+
+    display: flex;
+    justify-content: center;
+    align-items: center;
+
+    font-size: 1.5rem;
+    color: #2563eb;
+    font-weight: bold;
+}
