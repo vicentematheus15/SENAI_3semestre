@@ -10,3 +10,10 @@ body{
     background-color: #f5f7fa;
     color: #333;
 }
+
+/* PÁGINA */
+.pagina{
+    display: flex;
+    flex-direction: column;
+    gap: 40px;
+}
