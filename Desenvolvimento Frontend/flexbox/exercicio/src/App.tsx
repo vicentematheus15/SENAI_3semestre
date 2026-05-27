@@ -2,6 +2,7 @@ import './App.css'
 import Header from './components/Header'
 import Hero from './components/Hero'
 import Card from './components/Card'
+import LoginBox from './components/LoginBox'
 
 function App() {
 
@@ -27,7 +28,8 @@ function App() {
       descricao = "Banco de dados relacionais"
       />
     </section>
-    
+
+    <LoginBox />
 
       
     </main>
