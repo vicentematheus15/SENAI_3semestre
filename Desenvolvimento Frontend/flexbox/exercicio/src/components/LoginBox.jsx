@@ -1,15 +1,39 @@
 function LoginBox() {
     return(
-        <section>
-            <form >
-                <h1>Login</h1>
+        <section className="login">
 
-                <label>Email</label>
-                <input type="text" placeholder="Digite seu email" />
+            <form className="login-form">
 
-                <label>Senha</label>
-                <input type="password" placeholder="Digite sua senha" />
+                <h1 className="login-titulo">
+                    Login
+                </h1>
+
+                <label className="login-label">
+                    Email
+                </label>
+
+                <input 
+                    className="login-input"
+                    type="text" 
+                    placeholder="Digite seu email" 
+                />
+
+                <label className="login-label">
+                    Senha
+                </label>
+
+                <input 
+                    className="login-input"
+                    type="password" 
+                    placeholder="Digite sua senha" 
+                />
+
+                <button className="login-botao">
+                    Entrar
+                </button>
+
             </form>
+
         </section>
     )
 }

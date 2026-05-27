@@ -1,10 +1,17 @@
-function Card ({titulo, descricao}){
+function Card ({titulo, descricao}) {
     return(
-        <article>
-            <h2>{titulo}</h2>
-            <p>{descricao}</p>
-            <button>Ver detalhes</button>
+        <article className="card">
+            <h2 className="card-titulo">{titulo}</h2>
+
+            <p className="card-descricao">
+                {descricao}
+            </p>
+
+            <button className="card-botao">
+                Ver detalhes
+            </button>
         </article>
     )
 }
+
 export default Card
