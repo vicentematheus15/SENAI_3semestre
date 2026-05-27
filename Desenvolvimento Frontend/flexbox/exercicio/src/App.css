@@ -211,3 +211,15 @@ body{
 .login-botao:hover{
     background-color: #1d4ed8;
 }
+
+/* FOOTER */
+.footer{
+    background-color: #0f172a;
+    color: white;
+    text-align: center;
+    padding: 20px;
+}
+
+.footer-texto{
+    font-size: 1rem;
+}
