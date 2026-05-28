@@ -1,0 +1,24 @@
+{
+  "name": "project-1-ecommerce",
+  "version": "1.0.0",
+  "description": "E-commerce básico para prática de testes E2E com Cypress",
+  "scripts": {
+    "start": "vite --port 3000",
+    "build": "vite build",
+    "preview": "vite preview",
+    "cypress:open": "cypress open",
+    "cypress:run": "cypress run",
+    "test:e2e": "start-server-and-test start http://localhost:3000 cypress:run"
+  },
+  "dependencies": {
+    "react": "^18.2.0",
+    "react-dom": "^18.2.0",
+    "react-router-dom": "^6.22.0"
+  },
+  "devDependencies": {
+    "@vitejs/plugin-react": "^4.2.0",
+    "cypress": "^13.10.0",
+    "start-server-and-test": "^2.0.3",
+    "vite": "^5.2.0"
+  }
+}
