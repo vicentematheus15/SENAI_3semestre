@@ -50,7 +50,7 @@ describe('Fluxo completo de compra', () => {
 
         cy.get('[data-cy="select-estado"]').select('Santa Catarina (SC)')
 
-        //adivionando e validando valor do frete
+        //adicionando e validando valor do frete
         cy.get('[data-cy="select-frete"]').select('⚡ Expresso — 2 a 3 dias úteis — R$ 39,90')
         cy.get('[data-cy="summary-frete"]').contains('R$ 39,90')
 
@@ -74,6 +74,8 @@ describe('Fluxo completo de compra', () => {
         cy.get('[data-cy="order-number"]').should('exist')
         cy.get('#order-id').should('exist')
 
-        
+        //validando o redirecionamento para o site após finalizada a compra
+        cy.get('[data-cy="btn-continuar-comprando"]').click()
+        cy.url().should('contain', 'http://localhost:3000/')
   })
 })
