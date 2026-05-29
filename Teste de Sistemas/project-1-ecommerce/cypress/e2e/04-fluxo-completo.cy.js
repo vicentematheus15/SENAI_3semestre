@@ -60,7 +60,8 @@ describe('Fluxo completo de compra', () => {
         //selecionando método de pagamento
         cy.get('[data-cy="select-pagamento"]').select('⚡ PIX — 5% de desconto')
 
-       
+        //validando desconto do metodo de pagamento
+        cy.get('[data-cy="summary-desconto"]').contains('− R$ 29,99')
 
        
 
