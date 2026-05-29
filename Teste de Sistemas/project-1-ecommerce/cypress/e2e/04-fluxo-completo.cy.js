@@ -57,7 +57,8 @@ describe('Fluxo completo de compra', () => {
         //validando novo valor total
         cy.get('[data-cy="summary-total"]').contains('R$ 639,70')
 
-        
+        //selecionando método de pagamento
+        cy.get('[data-cy="select-pagamento"]').select('⚡ PIX — 5% de desconto')
 
        
 
