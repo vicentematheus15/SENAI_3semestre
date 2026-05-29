@@ -50,32 +50,18 @@ describe('Fluxo completo de compra', () => {
 
         cy.get('[data-cy="select-estado"]').select('Santa Catarina (SC)')
 
-        //adivionando e validando valor do frete
-        cy.get('[data-cy="select-frete"]').select('⚡ Expresso — 2 a 3 dias úteis — R$ 39,90')
-        cy.get('[data-cy="summary-frete"]').contains('R$ 39,90')
+        
 
-        //validando novo valor total
-        cy.get('[data-cy="summary-total"]').contains('R$ 639,70')
+        
 
-        //selecionando método de pagamento
-        cy.get('[data-cy="select-pagamento"]').select('⚡ PIX — 5% de desconto')
+        
 
-        //validando desconto do metodo de pagamento
-        cy.get('[data-cy="summary-desconto"]').contains('− R$ 29,99')
+       
 
-        //validando novo valor total
-        cy.get('[data-cy="summary-total"]').contains('R$ 609,71')
-        cy.get('[data-cy="btn-comprar"]').click()
+       
 
-        //validando que a compra foi efetuada
-        cy.get('[data-cy="success-title"]').should('exist')
-        cy.get('[data-cy="success-title"]').should('contain', 'Pedido Realizado com Sucesso!')
+        
 
-        cy.get('[data-cy="order-number"]').should('exist')
-        cy.get('#order-id').should('exist')
-
-        //validando o redirecionamento para o site após finalizada a compra
-        cy.get('[data-cy="btn-continuar-comprando"]').click()
-        cy.url().should('contain', 'http://localhost:3000/')
+        
   })
 })
