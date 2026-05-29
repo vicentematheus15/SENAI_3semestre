@@ -67,7 +67,12 @@ describe('Fluxo completo de compra', () => {
         cy.get('[data-cy="summary-total"]').contains('R$ 609,71')
         cy.get('[data-cy="btn-comprar"]').click()
 
-        
+        //validando que a compra foi efetuada
+        cy.get('[data-cy="success-title"]').should('exist')
+        cy.get('[data-cy="success-title"]').should('contain', 'Pedido Realizado com Sucesso!')
+
+        cy.get('[data-cy="order-number"]').should('exist')
+        cy.get('#order-id').should('exist')
 
         
   })
