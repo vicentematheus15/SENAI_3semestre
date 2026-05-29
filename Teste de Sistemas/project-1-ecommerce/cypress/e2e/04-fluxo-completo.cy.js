@@ -63,7 +63,9 @@ describe('Fluxo completo de compra', () => {
         //validando desconto do metodo de pagamento
         cy.get('[data-cy="summary-desconto"]').contains('− R$ 29,99')
 
-       
+        //validando novo valor total
+        cy.get('[data-cy="summary-total"]').contains('R$ 609,71')
+        cy.get('[data-cy="btn-comprar"]').click()
 
         
 
