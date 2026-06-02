@@ -4,14 +4,10 @@ import Header from "./components/Header";
 import SearchBar from "./components/SearchBar";
 import CourseList from "./components/CourseList";
 import CourseForm from "./components/CourseForm";
+
 const cursosIniciais = [
   { id: 1, nome: "React Básico", categoria: "Front-end", cargaHoraria: 20 },
-  {
-    id: 2,
-    nome: "JavaScript Essencial",
-    categoria: "Front-end",
-    cargaHoraria: 24,
-  },
+  { id: 2, nome: "JavaScript Essencial", categoria: "Front-end", cargaHoraria: 24 },
   { id: 3, nome: "Python para Dados", categoria: "Dados", cargaHoraria: 30 },
   { id: 4, nome: "APIs com Node.js", categoria: "Back-end", cargaHoraria: 28 },
   { id: 5, nome: "Banco de Dados SQL", categoria: "Dados", cargaHoraria: 18 },
