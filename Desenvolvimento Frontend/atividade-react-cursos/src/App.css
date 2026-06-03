@@ -19,5 +19,38 @@ body {
 .header h1 {
   margin: 0;
 }
+.header p {
+  margin: 6px 0 0;
+  color: #d1d5db;
+}
+.resumo {
+  display: flex;
+  gap: 12px;
+  flex-wrap: wrap;
+}
+.resumo span {
+  background: #2563eb;
+  padding: 10px 14px;
+  border-radius: 999px;
+}
+.container {
+  max-width: 1100px;
+  margin: 0 auto;
+  padding: 30px 20px;
+}
+.filtros,
+.formulario form {
+  display: flex;
+  gap: 12px;
+  margin-bottom: 25px;
+  flex-wrap: wrap;
+}
+input,
+select {
+  padding: 12px;
+  border: 1px solid #d1d5db;
+  border-radius: 8px;
+  font-size: 15px;
+}
 
 
