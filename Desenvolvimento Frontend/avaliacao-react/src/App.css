@@ -1,0 +1,96 @@
+/* Remove margens e espaçamentos padrões do navegador. */
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+  font-family: Arial, sans-serif;
+}
+/* Define o fundo geral da página. */
+body {
+  background-color: #f2f4f8;
+  min-height: 100vh;
+}
+/* Define a cor dos títulos */
+.titulos {
+  color: #1322c4;
+}
+/* Container principal da aplicação. Ativa o Flexbox e centraliza o card. */
+.container-principal {
+  display: flex;
+  justify-content: start;
+  align-items: end;
+  min-height: 100vh;
+}
+/* Card usado nas duas telas. Organiza os elementos em coluna. */
+.card {
+  background-color: white;
+  padding: 30px;
+  border-radius: 12px;
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.12);
+  width: 450px;
+  display: flex;
+  flex-direction: column;
+  gap: 18px;
+}
+/* Centraliza e colore o titulo do card. */
+.card h1 {
+  text-align: center;
+}
+/* Melhora a leitura do texto da tela inicial. */
+.card p {
+  color: #455a64;
+  line-height: 1.5;
+  text-align: center;
+}
+/* Organiza os campos do formulario em coluna. */
+.formulario {
+  display: flex;
+  flex-direction: column;
+  gap: 15px;
+}
+/* Agrupa label e input em coluna. */
+.grupo-campo {
+  display: flex;
+  flex-direction: column;
+  gap: 6px;
+}
+/* Destaca os labels dos campos. */
+.grupo-campo label {
+  font-weight: bold;
+  color: #37474f;
+}
+/* Estiliza os campos de entrada do formulario. */
+.grupo-campo input {
+  padding: 10px;
+  border: 1px solid #b0bec5;
+  border-radius: 6px;
+  font-size: 14px;
+}
+/* Botao principal da aplicacao. */
+.botao {
+  background-color: #022a53;
+  color: white;
+  border: none;
+  padding: 12px;
+  border-radius: 6px;
+  cursor: pointer;
+  font-size: 15px;
+}
+/* Efeito ao passar o mouse sobre o botao principal. */
+.botao:hover {
+  background-color: #042e6c;
+}
+/* Botao secundario usado para voltar. */
+.botao-secundario {
+  background-color: #eeeeee;
+  color: #263238;
+  border: none;
+  padding: 12px;
+  border-radius: 6px;
+  cursor: pointer;
+  font-size: 15px;
+}
+/* Efeito ao passar o mouse sobre o botao secundario. */
+.botao-secundario:hover {
+  background-color: #cfd8dc;
+}
