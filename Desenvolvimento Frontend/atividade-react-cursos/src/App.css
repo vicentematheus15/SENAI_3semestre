@@ -52,5 +52,24 @@ select {
   border-radius: 8px;
   font-size: 15px;
 }
+.filtros input {
+  flex: 1;
+  min-width: 240px;
+}
+.lista-cursos {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(240px, 1fr));
+  gap: 18px;
+}
+.card,
+.formulario {
+  background: white;
+  border-radius: 14px;
+  padding: 22px;
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.08);
+}
+.card.favorito {
+  border: 2px solid #2563eb;
+}
 
 
