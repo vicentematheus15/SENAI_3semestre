@@ -3,6 +3,7 @@
 describe('Dashboard', ()=> {
 
     beforeEach(() => {
+        cy.clearOrders()
         cy.visit('/')
 
     })
@@ -26,5 +27,5 @@ describe('Dashboard', ()=> {
     it('Deve navegar na pagina de pedidos e retornar ao dashboard', () => {
       
     })
-
+    
   })
