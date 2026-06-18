@@ -1,0 +1,31 @@
+[
+
+{
+  "id": 1,
+  "customer": "Daniel Silva",
+  "product": "Notebook Dell",
+  "amount": 5000.0,
+  "status": "completed",
+  "createdAt": "2026-06-01T10:00:00.000Z"
+
+},
+
+{
+  "id": 2,
+  "customer": "Maria Souza",
+  "product": "teclado Mecanico HP",
+  "amount": 480.0,
+  "status": "pending",
+  "createdAt": "2026-05-01T20:00:00.000Z"
+},
+
+{
+  "id": 3,
+  "customer": "Bruno Costa",
+  "product": "Mouser Gamer Microsoft",
+  "amount": 248.0,
+  "status": "cancelled",
+  "createdAt": "2026-04-04T10:30:00.000Z"
+}
+
+]
