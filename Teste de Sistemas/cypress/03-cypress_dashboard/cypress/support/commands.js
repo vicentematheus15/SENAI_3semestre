@@ -19,3 +19,9 @@ Cypress.Commands.add('navigateTo', (page) => {
 
     }
 })
+
+Cypress.Commands.add('fillOrderForm', (customer, product, amount) => {
+    cy.get('[data-testid="input-customer"]').clear().type(customer)
+    cy.get('[data-testid="input-product"]').clear().type(product)
+    cy.get('[data-testid="input-amount"]').clear().type(amount)
+})
