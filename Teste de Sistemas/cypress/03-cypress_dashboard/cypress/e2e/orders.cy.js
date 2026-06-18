@@ -37,6 +37,10 @@ it('Deve concluir um pedido pendente', () => {
 })
 
 it("Deve cancelar um pedido pendente", () => {
+    cy.get('[data-testid="order-row-2"] > :nth-child(5) > .badge').should('be.visible')
+    cy.get('[data-testid="cancel-btn-2"]').should('be.visible')
+    cy.get('[data-testid="cancel-btn-2"]').click
+    
 })
 
 })
