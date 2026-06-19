@@ -46,9 +46,12 @@ it("Deve filtrar pedidos por status", () => {
     cy.get('[data-testid="orders-list"] tbody tr').should('have.length', 1)
 })
 
-// it('Deve concluir um pedido pendente', () => {
-
-// })
+it('Deve concluir um pedido pendente', () => {
+    cy.get('[data-testid="complete-btn-2"]').click()
+    cy.get('[data-testid="filter-status"]').select('Concluídos')
+    cy.get('[data-testid="orders-list"] tbody tr').should('have.length', 2)
+    cy.get('[data-testid="toast-success"]').should('be.visible')
+})
 
 // it("Deve cancelar um pedido pendente", () => {
     
