@@ -53,8 +53,11 @@ it('Deve concluir um pedido pendente', () => {
     cy.get('[data-testid="toast-success"]').should('be.visible')
 })
 
-// it("Deve cancelar um pedido pendente", () => {
-    
-// })
+it("Deve cancelar um pedido pendente", () => {
+    cy.get('[data-testid="cancel-btn-2"]').click()
+    cy.get('[data-testid="filter-status"]').select('Cancelados')
+    cy.get('[data-testid="orders-list"] tbody tr').should('have.length', 2)
+    cy.get('[data-testid="toast-success"]').should('be.visible')
+})
 
 })
