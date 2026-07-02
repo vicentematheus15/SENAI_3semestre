@@ -1,0 +1,14 @@
+{
+  "name": "ci-pipeline-lab",
+  "version": "1.0.0",
+  "description": "Projeto 09 — Pipeline de CI: Docker, GitHub Actions e automação de testes",
+  "type": "module",
+  "scripts": {
+    "test": "vitest",
+    "test:run": "vitest run",
+    "test:coverage": "vitest run --coverage"
+  },
+  "devDependencies": {
+    "vitest": "^2.1.9"
+  }
+}
