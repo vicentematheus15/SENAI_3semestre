@@ -1,0 +1,17 @@
+# define a imagem base
+FROM node:22-alpine
+
+# define a pasta de trabalho no container
+WORKDIR /app
+
+#copia os arquivos de dependencia primeiro na raiz do projeto
+COPY package.json package-lock.json ./
+
+# npm ci usa o package-lock pra instalar as dependencias, e instala exatamente a versão que foi usada (evita quebrar pos instalar versões mais atualizadas)
+RUN npm ci
+
+# copia o resto do código
+COPY . .
+
+#comando padrão para startar a aplicação
+CMD ["npm", "run", "test"]
